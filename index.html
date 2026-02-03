@@ -6,13 +6,10 @@
     <title>Ozzy Chen | Portfolio</title>
     <meta name="description" content="Ozzy Chen - Mathematics & Applied Mathematics Student at UNNC">
     
-    <!-- Tailwind CSS (通过 CDN 引入) -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Lucide Icons (图标库) -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- 配置 Tailwind 主题颜色 -->
     <script>
         tailwind.config = {
             theme: {
@@ -33,7 +30,6 @@
     </script>
     
     <style>
-        /* 自定义滚动条样式 */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -55,7 +51,6 @@
 </head>
 <body class="bg-slate-900 text-slate-200 font-sans antialiased selection:bg-teal-500 selection:text-white">
 
-    <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-slate-900/90 backdrop-blur-sm z-50 border-b border-slate-800">
         <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-xl font-bold bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent cursor-pointer" onclick="scrollToSection('home')">
@@ -71,12 +66,10 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center pt-16 relative">
         <div class="max-w-4xl mx-auto px-6 text-center">
             <div class="mb-8 relative inline-block">
                 <div class="absolute inset-0 bg-teal-500 blur-2xl opacity-20 rounded-full"></div>
-                <!-- Avatar Image -->
                 <img 
                     src="./assets/avatar.jpg" 
                     alt="Ozzy Chen Avatar" 
@@ -92,7 +85,7 @@
             <p class="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-8">
                 Student at <span class="text-white">UNNC</span> | Mathematics & Applied Mathematics
                 <br />
-                Bridging <span class="text-teal-400">Math Theory</span> with <span className="text-blue-400">Programming</span>.
+                Bridging <span class="text-teal-400">Math Theory</span> with <span class="text-blue-400">Programming</span>.
             </p>
 
             <div class="flex justify-center space-x-4 mb-12">
@@ -110,7 +103,6 @@
         </div>
     </section>
 
-    <!-- About & Photo -->
     <section id="about" class="py-20 bg-slate-800/50 scroll-mt-16">
         <div class="max-w-5xl mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 flex items-center text-white">
@@ -118,7 +110,6 @@
             </h2>
             
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <!-- Text Content -->
                 <div class="space-y-6 text-lg text-slate-300 leading-relaxed order-2 md:order-1">
                     <p>
                         I am currently pursuing my degree in <strong>Mathematics & Applied Mathematics</strong> at the University of Nottingham Ningbo China (2024–2028).
@@ -132,12 +123,9 @@
                     </blockquote>
                 </div>
 
-                <!-- Photo Content (已修改：移除滤镜，优化布局居中显示) -->
                 <div class="order-1 md:order-2 flex justify-center items-center">
                     <div class="relative group max-w-xs md:max-w-sm">
-                        <!-- 装饰性背景框 -->
                         <div class="absolute -inset-2 bg-gradient-to-r from-teal-500 to-blue-600 rounded-xl opacity-20 blur-lg group-hover:opacity-40 transition duration-500"></div>
-                        <!-- Profile Image -->
                         <img 
                             src="./assets/profile.jpg" 
                             alt="Ozzy Chen Profile" 
@@ -150,7 +138,6 @@
         </div>
     </section>
 
-    <!-- Experience & Education -->
     <section id="experience" class="py-20 scroll-mt-16">
         <div class="max-w-5xl mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 flex items-center text-white">
@@ -159,7 +146,6 @@
 
             <div class="relative border-l border-slate-700 ml-3 md:ml-6 space-y-12">
                 
-                <!-- Research Item -->
                 <div class="relative pl-8 md:pl-12">
                     <div class="absolute -left-[9px] top-0 bg-slate-900 p-1 border border-teal-500 rounded-full">
                         <i data-lucide="cpu" class="w-4 h-4 text-teal-500"></i>
@@ -181,7 +167,6 @@
                     </ul>
                 </div>
 
-                <!-- Education Item -->
                 <div class="relative pl-8 md:pl-12">
                     <div class="absolute -left-[9px] top-0 bg-slate-900 p-1 border border-blue-500 rounded-full">
                         <i data-lucide="graduation-cap" class="w-4 h-4 text-blue-500"></i>
@@ -200,7 +185,6 @@
         </div>
     </section>
 
-    <!-- Skills -->
     <section id="skills" class="py-20 bg-slate-800/50 scroll-mt-16">
         <div class="max-w-5xl mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 flex items-center text-white">
@@ -208,7 +192,6 @@
             </h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Languages -->
                 <div class="bg-slate-900 p-6 rounded-xl border border-slate-700 hover:border-teal-500/50 transition-all">
                     <div class="flex items-center gap-3 mb-6">
                         <i data-lucide="terminal" class="text-teal-400 w-6 h-6"></i>
@@ -245,14 +228,12 @@
                     </div>
                 </div>
 
-                <!-- Tools -->
                 <div class="bg-slate-900 p-6 rounded-xl border border-slate-700 hover:border-teal-500/50 transition-all">
                     <div class="flex items-center gap-3 mb-6">
                         <i data-lucide="code" class="text-blue-400 w-6 h-6"></i>
                         <h3 class="text-xl font-semibold text-white">Libraries & Tools</h3>
                     </div>
                     <div class="flex flex-wrap gap-2">
-                        <!-- Tool Tags -->
                         <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-sm border border-slate-700 hover:border-blue-400 hover:text-white transition-colors">PyTorch</span>
                         <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-sm border border-slate-700 hover:border-blue-400 hover:text-white transition-colors">Qwen2.5-VL</span>
                         <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-sm border border-slate-700 hover:border-blue-400 hover:text-white transition-colors">OpenCV</span>
@@ -263,7 +244,6 @@
                     </div>
                 </div>
 
-                <!-- Domains -->
                 <div class="bg-slate-900 p-6 rounded-xl border border-slate-700 hover:border-teal-500/50 transition-all">
                     <div class="flex items-center gap-3 mb-6">
                         <i data-lucide="book-open" class="text-purple-400 w-6 h-6"></i>
@@ -288,7 +268,6 @@
         </div>
     </section>
 
-    <!-- Projects & Achievements -->
     <section id="projects" class="py-20 scroll-mt-16">
         <div class="max-w-5xl mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 flex items-center text-white">
@@ -296,75 +275,34 @@
             </h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
-                <!-- MICCAI Paper Project -->
-                <div class="bg-slate-800 p-6 rounded-lg hover:-translate-y-2 transition-transform duration-300 group border border-slate-700">
+                <div class="bg-slate-800 p-6 rounded-lg hover:-translate-y-2 transition-transform duration-300 group border border-slate-700 col-span-1 md:col-span-2 lg:col-span-1">
                     <div class="flex justify-between items-start mb-4">
-                        <div class="text-teal-400"><i data-lucide="code" class="w-8 h-8"></i></div>
+                        <div class="text-teal-400"><i data-lucide="file-text" class="w-8 h-8"></i></div>
                         <div class="flex gap-4">
                             <div class="flex items-center gap-1 text-xs text-amber-400 bg-amber-400/10 px-2 py-1 rounded border border-amber-400/20">
-                                <i data-lucide="lock" class="w-3 h-3"></i> Private
+                                <i data-lucide="send" class="w-3 h-3"></i> Under Review
                             </div>
-                            <a href="https://github.com/OzzyChen97/moe" target="_blank" rel="noreferrer">
-                                <i data-lucide="github" class="w-5 h-5 text-slate-400 hover:text-white cursor-pointer"></i>
-                            </a>
                         </div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-teal-400 transition-colors">LVLM Efficiency (MICCAI Prep)</h3>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-teal-400 transition-colors">
+                        TC-SSA: Token Compression via Semantic Slot Aggregation
+                    </h3>
                     <p class="text-slate-400 mb-4 text-sm">
-                        Efficiency optimization for Large Visual Language Models using <strong>MoE (Mixture of Experts)</strong>. Addressing reasoning challenges in long-context medical/visual data.
+                        Proposed a learnable token-budgeting mechanism for <strong>Gigapixel Whole-Slide Images</strong>. 
+                        Reframed spatial reasoning as aggregation-based compression via gated assignment (Top-2 routing), achieving <strong>76.78% accuracy</strong> on SlideChat and <strong>120x efficiency gain</strong>.
                     </p>
                     <div class="flex flex-wrap gap-2 text-xs text-slate-500 font-mono mt-auto">
+                        <span>MICCAI Submission</span>
                         <span>PyTorch</span>
-                        <span>MoE</span>
-                        <span>MICCAI'25</span>
+                        <span>VLM</span>
+                        <span>WSI Analysis</span>
                     </div>
                 </div>
 
-                <!-- Achievement: Young China Chip -->
-                <div class="bg-slate-800 p-6 rounded-lg hover:-translate-y-2 transition-transform duration-300 group border border-slate-700">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="text-amber-400"><i data-lucide="trophy" class="w-8 h-8"></i></div>
-                        <div class="flex gap-4">
-                            <!-- <i data-lucide="external-link" class="w-5 h-5 text-slate-400 hover:text-white cursor-pointer"></i> -->
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">Young China Chip Initiative</h3>
-                    <p class="text-slate-400 mb-4 text-sm">
-                        Awarded <strong>First Prize</strong> in this prestigious competition hosted by PKU, HKUST, and IEEE. Demonstrated excellence in hardware/algorithm co-design concepts.
-                    </p>
-                    <div class="flex flex-wrap gap-2 text-xs text-slate-500 font-mono mt-auto">
-                        <span>1st Prize</span>
-                        <span>IEEE</span>
-                        <span>Innovation</span>
-                    </div>
-                </div>
-
-                <!-- Project: MCM Modeling -->
-                <div class="bg-slate-800 p-6 rounded-lg hover:-translate-y-2 transition-transform duration-300 group border border-slate-700">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="text-blue-400"><i data-lucide="award" class="w-8 h-8"></i></div>
-                        <div class="flex gap-4">
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">MCM Modeling</h3>
-                    <p class="text-slate-400 mb-4 text-sm">
-                        Participated in the Mathematical Contest in Modeling. Used differential equations and statistical analysis to model population growth under resource constraints.
-                    </p>
-                    <div class="flex flex-wrap gap-2 text-xs text-slate-500 font-mono mt-auto">
-                        <span>LaTeX</span>
-                        <span>NumPy</span>
-                        <span>Modeling</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-8 text-center">
-                <p class="text-slate-500 italic text-sm">Also participated in NOI CCF-CSP & Kaggle Competitions.</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer id="contact" class="py-12 bg-slate-900 border-t border-slate-800 text-center">
         <h2 class="text-2xl font-bold text-white mb-6">Let's Connect</h2>
         <p class="text-slate-400 mb-8 max-w-md mx-auto">
@@ -383,7 +321,6 @@
         </div>
     </footer>
 
-    <!-- Script for Icons and Interactions -->
     <script>
         // Initialize Icons
         lucide.createIcons();
