@@ -23,9 +23,9 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Ozzy Chen (陈卓)"
   avatar           : "images/profile.jpg"
-  bio              : "B.Sc. Student, University of Nottingham Ningbo China"
+  bio              : "B.Sc. Student, University of Nottingham"
   location         : "Ningbo, China"
-  employer         : "University of Nottingham Ningbo China"
+  employer         : "University of Nottingham"
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=x81ITIYAAAAJ"
   email            : "comfortableapple@gmail.com"
