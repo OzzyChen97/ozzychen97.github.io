@@ -8,20 +8,13 @@ redirect_from:
   - /about.html
 ---
 
-{% if site.google_scholar_stats_use_cdn %}
-{% assign gsDataBaseUrl = "https://cdn.jsdelivr.net/gh/" | append: site.repository | append: "@" %}
-{% else %}
-{% assign gsDataBaseUrl = "https://raw.githubusercontent.com/" | append: site.repository | append: "/" %}
-{% endif %}
-{% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
-
 <span class='anchor' id='about-me'></span>
 
 I am an undergraduate student majoring in **Mathematics & Applied Mathematics** at the [University of Nottingham](https://www.nottingham.edu.cn/). My passion lies in the intersection of rigorous mathematical theory and practical algorithmic implementation.
 
 My research interest includes **Large Visual Language Models (LVLMs)**, **Algorithm Design**, and **Mathematical Modeling**. I am currently working as a Research Assistant at the [AI Center, Shenzhen University of Advanced Technology](https://www.suat-sz.edu.cn/), focusing on efficiency optimization and reasoning problems in long-context image understanding.
 
-You can find my publications on [Google Scholar](https://scholar.google.com/citations?user=x81ITIYAAAAJ).
+You can find my publications on <a href='https://scholar.google.com/citations?user=x81ITIYAAAAJ'>Google Scholar</a>.
 
 
 # 🔥 News
