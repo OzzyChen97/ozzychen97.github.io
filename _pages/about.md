@@ -36,7 +36,7 @@ You can find my publications on [Google Scholar](https://scholar.google.com/cita
 
 [TC-SSA: Token Compression via Semantic Slot Aggregation](https://arxiv.org/pdf/2603.01143v1)
 
-**Ozzy Chen**, et al.
+**Zhuo Chen**, Shawn Young, Lijian Xu
 
 - Proposed a learnable token-budgeting mechanism for Gigapixel Whole-Slide Images.
 - Reframed spatial reasoning as aggregation-based compression via gated assignment (Top-2 routing).
