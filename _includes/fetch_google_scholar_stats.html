@@ -5,15 +5,43 @@
         {% else %}
         var gsDataBaseUrl = 'https://raw.githubusercontent.com/{{ site.repository }}/'
         {% endif %}
+
+        // Fetch Google Scholar citation data
         $.getJSON(gsDataBaseUrl + "google-scholar-stats/gs_data.json", function (data) {
-            var totalCitation = data['citedby']
-            document.getElementById('total_cit').innerHTML = totalCitation;
-            var citationEles = document.getElementsByClassName('show_paper_citations')
-            Array.prototype.forEach.call(citationEles, element => {
-                var paperId = element.getAttribute('data')
-                var numCitations = data['publications'][paperId]['num_citations']
-                element.innerHTML = '| Citations: ' + numCitations;
+            // Update total citations
+            if (data['citedby'] !== undefined) {
+                var totalCitEl = document.getElementById('total_cit');
+                if (totalCitEl) {
+                    totalCitEl.innerHTML = data['citedby'];
+                }
+            }
+
+            // Update per-paper citations by matching paper title
+            var pubs = data['publications'] || {};
+            var pubList = Object.values(pubs);
+
+            var citationEles = document.getElementsByClassName('paper_citation');
+            Array.prototype.forEach.call(citationEles, function(element) {
+                var paperTitle = (element.getAttribute('data-title') || '').toLowerCase().trim();
+                if (!paperTitle) return;
+
+                var matched = pubList.find(function(pub) {
+                    var pubTitle = (pub['bib'] && pub['bib']['title'] || '').toLowerCase().trim();
+                    return pubTitle === paperTitle;
+                });
+
+                if (matched && matched['num_citations'] !== undefined) {
+                    element.innerHTML = '| Citations: ' + matched['num_citations'];
+                } else {
+                    element.innerHTML = '| Citations: 0';
+                }
             });
+        }).fail(function () {
+            // Silently handle errors (e.g., data not yet generated)
+            var totalCitEl = document.getElementById('total_cit');
+            if (totalCitEl) {
+                totalCitEl.innerHTML = '-';
+            }
         });
-    })
+    });
 </script>

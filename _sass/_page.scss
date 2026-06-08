@@ -410,3 +410,133 @@
   font-size: $type-size-6;
   text-transform: uppercase;
 }
+
+
+/*
+   Timeline for Research Experience
+   ========================================================================== */
+
+.timeline {
+  position: relative;
+  padding-left: 2.5em;
+  margin: 2em 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0.9em;
+    top: 0.5em;
+    bottom: 0.5em;
+    width: 2px;
+    background: linear-gradient(to bottom, #4a90d9, #c0392b);
+    border-radius: 2px;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.timeline-date {
+  position: absolute;
+  left: -2.5em;
+  top: 0;
+  width: 1.6em;
+  text-align: center;
+  font-size: 0.7em;
+  color: #666;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -1.55em;
+  top: 0.1em;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #4a90d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+
+  img {
+    width: 85%;
+    height: 85%;
+    object-fit: contain;
+  }
+
+  .timeline-item:nth-child(2) & {
+    border-color: #c0392b;
+  }
+}
+
+.timeline-content {
+  margin-left: 1.5em;
+  padding: 1em 1.25em;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border-left: 4px solid #4a90d9;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+  }
+
+  .timeline-item:nth-child(2) & {
+    border-left-color: #c0392b;
+  }
+
+  h3 {
+    margin: 0 0 0.2em;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #333;
+    border: none;
+    padding: 0;
+  }
+
+  ul {
+    margin: 0.5em 0 0;
+    padding-left: 1.2em;
+
+    li {
+      font-size: 0.95em;
+      margin-bottom: 0.3em;
+      color: #555;
+    }
+  }
+}
+
+.timeline-institution {
+  margin: 0 0 0.3em;
+  font-size: 0.9em;
+  color: #777;
+  font-style: italic;
+}
+
+
+/*
+   Paper citation count
+   ========================================================================== */
+
+.paper_citation {
+  display: inline-block;
+  font-size: 0.85em;
+  color: #888;
+  margin-top: 0.3em;
+}
+

@@ -14,12 +14,11 @@ I am an undergraduate student majoring in **Mathematics & Applied Mathematics** 
 
 My research interest includes **Large Visual Language Models (LVLMs)**, **Algorithm Design**, and **Mathematical Modeling**. I am currently working as a Research Assistant at the [AI Center, Shenzhen University of Advanced Technology](https://www.suat-sz.edu.cn/), focusing on efficiency optimization and reasoning problems in long-context image understanding.
 
-You can find my publications on <a href='https://scholar.google.com/citations?user=x81ITIYAAAAJ'>Google Scholar</a>.
+You can find my publications on <a href='https://scholar.google.com/citations?user=x81ITIYAAAAJ'>Google Scholar</a>. Total citations: <span id="total_cit">-</span>.
 
 
 # 🔥 News
 - *2026.03*: &nbsp;🎉🎉 Our paper **TC-SSA: Token Compression via Semantic Slot Aggregation** is now available on arXiv!
-- *2026.05*: &nbsp;🎉🎉 Our paper **PathoSelect: Capacity-Constrained Token Budgeting for Gigapixel Pathology Inference** is now available on arXiv!
 - *2025.07*: &nbsp;🔬 Joined the Computer Vision and Recognition Center (AI觉-知研究中心) at Shenzhen University of Advanced Technology as a Research Assistant.
 
 # 📝 Publications 
@@ -31,29 +30,47 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
 
 **Zhuo Chen**, Shawn Young, Lijian Xu
 
+<span class="paper_citation" data-title="TC-SSA: Token Compression via Semantic Slot Aggregation"></span>
+
 - Proposed a learnable token-budgeting mechanism for Gigapixel Whole-Slide Images.
 - Reframed spatial reasoning as aggregation-based compression via gated assignment (Top-2 routing).
 - Achieved **76.78% accuracy** on SlideChat and **120× efficiency gain**.
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">arXiv 2026</div><img src='images/pathoselect.png' alt="PathoSelect" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-[PathoSelect: Capacity-Constrained Token Budgeting for Gigapixel Pathology Inference](https://arxiv.org/)
-
-Jingzhi Chen, Landi He, **Zhuo Chen**, Xiaoyu Yang, Lijian Xu
-
-- Proposed a capacity-constrained token budgeting framework for efficient gigapixel pathology image inference.
-</div>
-</div>
-
-# 📖 Educations
-- *2024.09 - 2028.06 (expected)*, B.Sc. in Mathematics & Applied Mathematics, **University of Nottingham**. 
-  - Relevant Coursework: Linear Algebra, Machine Learning, Deep Learning, Computer Vision.
-
 # 💻 Research Experience
-- *2025.07 - Present*, Research Assistant, **Shenzhen University of Advanced Technology**, AI Center (Computer Vision and Recognition Center).
-  - Conducting research on Large Visual Language Models (LVLMs), studying efficiency optimization.
-  - Investigating reasoning problems in long-context image understanding.
-  - Working with models such as Qwen2.5-VL to bridge sensory input with cognitive understanding.
+
+<div class="timeline">
+
+  <div class="timeline-item">
+    <div class="timeline-date">2025.07 - Present</div>
+    <div class="timeline-dot">
+      <img src="images/SUAT-Logo.png" alt="SUAT">
+    </div>
+    <div class="timeline-content">
+      <h3>Research Assistant</h3>
+      <p class="timeline-institution">Shenzhen University of Advanced Technology — AI Center (Computer Vision and Recognition Center)</p>
+      <p style="margin: 0.2em 0 0.4em; font-size: 0.9em; color: #555;">Under the supervision of <strong>Associate Professor Lijian Xu</strong></p>
+      <ul>
+        <li>Conducting research on Large Visual Language Models (LVLMs), studying efficiency optimization.</li>
+        <li>Investigating reasoning problems in long-context image understanding.</li>
+        <li>Working with models such as Qwen2.5-VL to bridge sensory input with cognitive understanding.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-date">2024.09 - 2028.06</div>
+    <div class="timeline-dot">
+      <img src="images/UoN-Logo.jpg" alt="UoN">
+    </div>
+    <div class="timeline-content">
+      <h3>B.Sc. in Mathematics & Applied Mathematics</h3>
+      <p class="timeline-institution">University of Nottingham</p>
+      <ul>
+        <li>Relevant Coursework: Linear Algebra, Machine Learning, Deep Learning, Computer Vision.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
