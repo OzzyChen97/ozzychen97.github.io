@@ -413,55 +413,92 @@
 
 
 /*
-   Timeline for Research Experience
+   Timeline for Research Experience (center-line, alternating)
    ========================================================================== */
 
 .timeline {
   position: relative;
-  padding-left: 2.5em;
-  margin: 2em 0;
+  max-width: 860px;
+  margin: 3em auto;
+  padding: 1em 0;
 
   &::before {
     content: '';
     position: absolute;
-    left: 0.9em;
-    top: 0.5em;
-    bottom: 0.5em;
-    width: 2px;
-    background: linear-gradient(to bottom, #4a90d9, #c0392b);
-    border-radius: 2px;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, #4a90d9 0%, #6c3483 50%, #c0392b 100%);
+    border-radius: 3px;
+    transform: translateX(-50%);
   }
 }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 2.5em;
+  width: 50%;
+  margin-bottom: 3em;
 
   &:last-child {
     margin-bottom: 0;
   }
-}
 
-.timeline-date {
-  position: absolute;
-  left: -2.5em;
-  top: 0;
-  width: 1.6em;
-  text-align: center;
-  font-size: 0.7em;
-  color: #666;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  letter-spacing: 0.05em;
-  white-space: nowrap;
+  /* Odd items: left side */
+  &:nth-child(odd) {
+    left: 0;
+    padding-right: 2.8em;
+    text-align: right;
+
+    .timeline-content {
+      border-left: none;
+      border-right: 4px solid #4a90d9;
+      text-align: right;
+
+      ul {
+        padding-left: 0;
+        padding-right: 1.2em;
+        list-style-position: inside;
+      }
+    }
+
+    .timeline-dot {
+      right: -20px;
+      border-color: #4a90d9;
+    }
+
+    .timeline-date {
+      right: -11em;
+      text-align: left;
+    }
+  }
+
+  /* Even items: right side */
+  &:nth-child(even) {
+    left: 50%;
+    padding-left: 2.8em;
+
+    .timeline-content {
+      border-left: 4px solid #c0392b;
+    }
+
+    .timeline-dot {
+      left: -20px;
+      border-color: #c0392b;
+    }
+
+    .timeline-date {
+      left: -11em;
+      text-align: right;
+    }
+  }
 }
 
 .timeline-dot {
   position: absolute;
-  left: -1.55em;
-  top: 0.1em;
-  width: 36px;
-  height: 36px;
+  top: 1.2em;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: #fff;
   border: 3px solid #4a90d9;
@@ -469,39 +506,40 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
   z-index: 2;
 
   img {
-    width: 85%;
-    height: 85%;
+    width: 80%;
+    height: 80%;
     object-fit: contain;
-  }
-
-  .timeline-item:nth-child(2) & {
-    border-color: #c0392b;
   }
 }
 
+.timeline-date {
+  position: absolute;
+  top: 1.6em;
+  width: 8em;
+  font-size: 0.82em;
+  font-weight: 600;
+  color: #555;
+  white-space: nowrap;
+}
+
 .timeline-content {
-  margin-left: 1.5em;
-  padding: 1em 1.25em;
+  padding: 1.2em 1.5em;
   background: #f9f9f9;
   border-radius: 8px;
-  border-left: 4px solid #4a90d9;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-  transition: box-shadow 0.2s ease;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 
   &:hover {
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
-  }
-
-  .timeline-item:nth-child(2) & {
-    border-left-color: #c0392b;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
   }
 
   h3 {
-    margin: 0 0 0.2em;
+    margin: 0 0 0.25em;
     font-size: 1.1em;
     font-weight: 600;
     color: #333;
@@ -514,7 +552,7 @@
     padding-left: 1.2em;
 
     li {
-      font-size: 0.95em;
+      font-size: 0.93em;
       margin-bottom: 0.3em;
       color: #555;
     }
@@ -523,9 +561,63 @@
 
 .timeline-institution {
   margin: 0 0 0.3em;
-  font-size: 0.9em;
+  font-size: 0.88em;
   color: #777;
   font-style: italic;
+}
+
+.timeline-supervisor {
+  margin: 0.2em 0 0.4em;
+  font-size: 0.88em;
+  color: #555;
+}
+
+/* Mobile: collapse to single column */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 1.2em;
+    transform: none;
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    width: 100%;
+    left: 0;
+    padding-left: 3.5em;
+    padding-right: 0;
+    text-align: left;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-dot,
+  .timeline-item:nth-child(even) .timeline-dot {
+    left: -0.2em;
+    right: auto;
+    width: 36px;
+    height: 36px;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-date,
+  .timeline-item:nth-child(even) .timeline-date {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: auto;
+    text-align: left;
+    margin-bottom: 0.5em;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-content {
+    border-right: none;
+    border-left: 4px solid #4a90d9;
+    text-align: left;
+
+    ul {
+      padding-left: 1.2em;
+      padding-right: 0;
+      list-style-position: outside;
+    }
+  }
 }
 
 
@@ -539,4 +631,5 @@
   color: #888;
   margin-top: 0.3em;
 }
+
 

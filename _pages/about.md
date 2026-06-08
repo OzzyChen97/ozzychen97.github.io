@@ -50,7 +50,7 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
     <div class="timeline-content">
       <h3>Research Assistant</h3>
       <p class="timeline-institution">Shenzhen University of Advanced Technology — AI Center (Computer Vision and Recognition Center)</p>
-      <p style="margin: 0.2em 0 0.4em; font-size: 0.9em; color: #555;">Under the supervision of <strong>Associate Professor Lijian Xu</strong></p>
+      <p class="timeline-supervisor">Under the supervision of <strong>Associate Professor Lijian Xu</strong></p>
       <ul>
         <li>Conducting research on Large Visual Language Models (LVLMs), studying efficiency optimization.</li>
         <li>Investigating reasoning problems in long-context image understanding.</li>
