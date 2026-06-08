@@ -43,10 +43,30 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
 <div class="timeline">
 
   <div class="timeline-item">
-    <div class="timeline-date">2025.07 - Present</div>
-    <div class="timeline-dot">
-      <img src="images/SUAT-Logo.png" alt="SUAT">
+    <div class="timeline-info">
+      <div class="timeline-date">2024.09 - 2028.06</div>
+      <div class="timeline-logo">
+        <img src="images/UoN-Logo.jpg" alt="UoN">
+      </div>
     </div>
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <h3>B.Sc. in Mathematics & Applied Mathematics</h3>
+      <p class="timeline-institution">University of Nottingham</p>
+      <ul>
+        <li>Relevant Coursework: Linear Algebra, Machine Learning, Deep Learning, Computer Vision.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-info">
+      <div class="timeline-date">2025.07 - Present</div>
+      <div class="timeline-logo">
+        <img src="images/SUAT-Logo.png" alt="SUAT">
+      </div>
+    </div>
+    <div class="timeline-dot"></div>
     <div class="timeline-content">
       <h3>Research Assistant</h3>
       <p class="timeline-institution">Shenzhen University of Advanced Technology — AI Center (Computer Vision and Recognition Center)</p>
@@ -55,20 +75,6 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
         <li>Conducting research on Large Visual Language Models (LVLMs), studying efficiency optimization.</li>
         <li>Investigating reasoning problems in long-context image understanding.</li>
         <li>Working with models such as Qwen2.5-VL to bridge sensory input with cognitive understanding.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="timeline-item">
-    <div class="timeline-date">2024.09 - 2028.06</div>
-    <div class="timeline-dot">
-      <img src="images/UoN-Logo.jpg" alt="UoN">
-    </div>
-    <div class="timeline-content">
-      <h3>B.Sc. in Mathematics & Applied Mathematics</h3>
-      <p class="timeline-institution">University of Nottingham</p>
-      <ul>
-        <li>Relevant Coursework: Linear Algebra, Machine Learning, Deep Learning, Computer Vision.</li>
       </ul>
     </div>
   </div>
