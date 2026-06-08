@@ -466,7 +466,7 @@
     }
 
     .timeline-info {
-      right: -12em;
+      right: -14em;
       text-align: left;
     }
   }
@@ -487,7 +487,7 @@
     }
 
     .timeline-info {
-      left: -12em;
+      left: -14em;
       text-align: right;
     }
   }
@@ -509,16 +509,17 @@
 .timeline-info {
   position: absolute;
   top: 0.2em;
-  width: 10em;
+  width: 12em;
   z-index: 1;
 }
 
 .timeline-date {
-  font-size: 0.95em;
+  font-size: 1.15em;
   font-weight: 700;
-  color: #444;
+  color: #333;
   white-space: nowrap;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.6em;
+  letter-spacing: 0.02em;
 }
 
 .timeline-logo {
