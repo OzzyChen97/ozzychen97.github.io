@@ -1,47 +1,37 @@
 <script>
     $(document).ready(function () {
+        // Fetch per-paper citations from Semantic Scholar API (by arXiv ID)
+        var citationEles = document.querySelectorAll('.paper_citation[data-arxiv]');
+        citationEles.forEach(function(el) {
+            var arxivId = el.getAttribute('data-arxiv');
+            if (!arxivId) return;
+
+            $.getJSON('https://api.semanticscholar.org/graph/v1/paper/arXiv:' + arxivId + '?fields=citationCount', function(data) {
+                if (data && data.citationCount !== undefined) {
+                    el.innerHTML = '| Citations: ' + data.citationCount;
+                } else {
+                    el.innerHTML = '| Citations: 0';
+                }
+            }).fail(function() {
+                el.innerHTML = '| Citations: -';
+            });
+        });
+
+        // Fetch total citations from Google Scholar data (if available)
         {% if site.google_scholar_stats_use_cdn %}
         var gsDataBaseUrl = 'https://cdn.jsdelivr.net/gh/{{ site.repository }}@'
         {% else %}
         var gsDataBaseUrl = 'https://raw.githubusercontent.com/{{ site.repository }}/'
         {% endif %}
 
-        // Fetch Google Scholar citation data
-        $.getJSON(gsDataBaseUrl + "google-scholar-stats/gs_data.json", function (data) {
-            // Update total citations
+        $.getJSON(gsDataBaseUrl + "google-scholar-stats/gs_data.json", function(data) {
             if (data['citedby'] !== undefined) {
                 var totalCitEl = document.getElementById('total_cit');
-                if (totalCitEl) {
-                    totalCitEl.innerHTML = data['citedby'];
-                }
+                if (totalCitEl) totalCitEl.innerHTML = data['citedby'];
             }
-
-            // Update per-paper citations by matching paper title
-            var pubs = data['publications'] || {};
-            var pubList = Object.values(pubs);
-
-            var citationEles = document.getElementsByClassName('paper_citation');
-            Array.prototype.forEach.call(citationEles, function(element) {
-                var paperTitle = (element.getAttribute('data-title') || '').toLowerCase().trim();
-                if (!paperTitle) return;
-
-                var matched = pubList.find(function(pub) {
-                    var pubTitle = (pub['bib'] && pub['bib']['title'] || '').toLowerCase().trim();
-                    return pubTitle === paperTitle;
-                });
-
-                if (matched && matched['num_citations'] !== undefined) {
-                    element.innerHTML = '| Citations: ' + matched['num_citations'];
-                } else {
-                    element.innerHTML = '| Citations: 0';
-                }
-            });
-        }).fail(function () {
-            // Silently handle errors (e.g., data not yet generated)
+        }).fail(function() {
             var totalCitEl = document.getElementById('total_cit');
-            if (totalCitEl) {
-                totalCitEl.innerHTML = '-';
-            }
+            if (totalCitEl) totalCitEl.innerHTML = '-';
         });
     });
 </script>
