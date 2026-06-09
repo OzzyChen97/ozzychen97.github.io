@@ -1,19 +1,29 @@
 <script>
     $(document).ready(function () {
-        // Fetch per-paper citations from Semantic Scholar API (by arXiv ID)
+        // Fetch per-paper citations from OpenAlex API (free, no rate limits, works for arXiv papers)
         var citationEles = document.querySelectorAll('.paper_citation[data-arxiv]');
         citationEles.forEach(function(el) {
             var arxivId = el.getAttribute('data-arxiv');
             if (!arxivId) return;
 
-            $.getJSON('https://api.semanticscholar.org/graph/v1/paper/arXiv:' + arxivId + '?fields=citationCount', function(data) {
-                if (data && data.citationCount !== undefined) {
-                    el.innerHTML = '| Citations: ' + data.citationCount;
+            // Try OpenAlex first (no rate limits)
+            $.getJSON('https://api.openalex.org/works/doi:10.48550/arXiv.' + arxivId + '?select=id,cited_by_count', function(data) {
+                if (data && data.cited_by_count !== undefined) {
+                    el.innerHTML = '| Citations: ' + data.cited_by_count;
                 } else {
                     el.innerHTML = '| Citations: 0';
                 }
             }).fail(function() {
-                el.innerHTML = '| Citations: -';
+                // Fallback to Semantic Scholar if OpenAlex doesn't have the paper yet
+                $.getJSON('https://api.semanticscholar.org/graph/v1/paper/arXiv:' + arxivId + '?fields=citationCount', function(data) {
+                    if (data && data.citationCount !== undefined) {
+                        el.innerHTML = '| Citations: ' + data.citationCount;
+                    } else {
+                        el.innerHTML = '| Citations: 0';
+                    }
+                }).fail(function() {
+                    el.innerHTML = '| Citations: 0';
+                });
             });
         });
 
