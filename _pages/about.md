@@ -18,13 +18,14 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
 
 
 # 🔥 News
+- *2026.06*: &nbsp;🎉🎉 Our paper **TC-SSA: Token Compression via Semantic Slot Aggregation** is accepted at **MICCAI 2026**!
 - *2026.06*: &nbsp;🎉🎉 Our paper **SparseLearn: Learnable Token Sparsification for Efficient Gigapixel Whole Slide Image Reasoning** is under review at WAIC 2026!
 - *2026.03*: &nbsp;🎉🎉 Our paper **TC-SSA: Token Compression via Semantic Slot Aggregation** is now available on arXiv!
 - *2025.07*: &nbsp;🔬 Joined the Computer Vision and Recognition Center (AI觉-知研究中心) at Shenzhen University of Advanced Technology as a Research Assistant.
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">arXiv 2026</div><img src='images/tc_ssa.png' alt="TC-SSA" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">MICCAI 2026</div><img src='images/tc_ssa.png' alt="TC-SSA" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [TC-SSA: Token Compression via Semantic Slot Aggregation](https://arxiv.org/pdf/2603.01143v1)
