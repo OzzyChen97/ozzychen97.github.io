@@ -101,7 +101,7 @@ Jingzhi Chen, Landi He, **Zhuo Chen**, Xiaoyu Yang, Lijian Xu
     <div class="timeline-info">
       <div class="timeline-date">2026.06 - Present</div>
       <div class="timeline-logo hkustgz-logo">
-        <img src="images/HKUSTGZ-Logo.png" alt="HKUST(GZ)">
+        <img src="images/HKUSTGZ-Logo.png?v=20260617" alt="HKUST(GZ)">
       </div>
     </div>
     <div class="timeline-dot"></div>

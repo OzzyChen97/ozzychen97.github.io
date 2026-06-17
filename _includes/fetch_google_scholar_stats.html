@@ -1,31 +1,45 @@
 <script>
     $(document).ready(function () {
-        // Fetch per-paper citations from OpenAlex API (free, no rate limits, works for arXiv papers)
         var citationEles = document.querySelectorAll('.paper_citation[data-arxiv]');
-        citationEles.forEach(function(el) {
+        var pendingPaperCitations = {};
+
+        function normalizeArxivId(arxivId) {
+            return (arxivId || '').replace(/^arXiv:/i, '').replace(/v\d+$/i, '').trim();
+        }
+
+        function setPaperCitation(el, count) {
+            if (count !== undefined && count !== null) {
+                el.innerHTML = '| Citations: ' + count;
+            }
+        }
+
+        function fetchPaperCitationFromApis(el) {
             var arxivId = el.getAttribute('data-arxiv');
             if (!arxivId) return;
+            arxivId = normalizeArxivId(arxivId);
 
-            // Try OpenAlex first (no rate limits)
             $.getJSON('https://api.openalex.org/works/doi:10.48550/arXiv.' + arxivId + '?select=id,cited_by_count', function(data) {
                 if (data && data.cited_by_count !== undefined) {
-                    el.innerHTML = '| Citations: ' + data.cited_by_count;
+                    setPaperCitation(el, data.cited_by_count);
                 } else {
-                    el.innerHTML = '| Citations: 0';
+                    fetchPaperCitationFromSemanticScholar(el, arxivId);
                 }
             }).fail(function() {
-                // Fallback to Semantic Scholar if OpenAlex doesn't have the paper yet
-                $.getJSON('https://api.semanticscholar.org/graph/v1/paper/arXiv:' + arxivId + '?fields=citationCount', function(data) {
-                    if (data && data.citationCount !== undefined) {
-                        el.innerHTML = '| Citations: ' + data.citationCount;
-                    } else {
-                        el.innerHTML = '| Citations: 0';
-                    }
-                }).fail(function() {
-                    el.innerHTML = '| Citations: 0';
-                });
+                fetchPaperCitationFromSemanticScholar(el, arxivId);
             });
-        });
+        }
+
+        function fetchPaperCitationFromSemanticScholar(el, arxivId) {
+            $.getJSON('https://api.semanticscholar.org/graph/v1/paper/arXiv:' + arxivId + '?fields=citationCount', function(data) {
+                if (data && data.citationCount !== undefined) {
+                    setPaperCitation(el, data.citationCount);
+                } else {
+                    setPaperCitation(el, 0);
+                }
+            }).fail(function() {
+                setPaperCitation(el, 0);
+            });
+        }
 
         // Fetch total citations from Google Scholar data (if available)
         {% if site.google_scholar_stats_use_cdn %}
@@ -34,14 +48,43 @@
         var gsDataBaseUrl = 'https://raw.githubusercontent.com/{{ site.repository }}/'
         {% endif %}
 
+        citationEles.forEach(function(el) {
+            var arxivId = normalizeArxivId(el.getAttribute('data-arxiv'));
+            if (!arxivId) return;
+            pendingPaperCitations[arxivId] = el;
+        });
+
         $.getJSON(gsDataBaseUrl + "google-scholar-stats/gs_data.json", function(data) {
             if (data['citedby'] !== undefined) {
                 var totalCitEl = document.getElementById('total_cit');
                 if (totalCitEl) totalCitEl.innerHTML = data['citedby'];
             }
+
+            if (data['publications']) {
+                Object.keys(data['publications']).forEach(function(pubId) {
+                    var pub = data['publications'][pubId];
+                    var citationText = pub && pub['bib'] && pub['bib']['citation'];
+                    var arxivMatch = citationText && citationText.match(/arXiv:([0-9.]+)/i);
+                    if (!arxivMatch) return;
+
+                    var arxivId = normalizeArxivId(arxivMatch[1]);
+                    if (pendingPaperCitations[arxivId]) {
+                        setPaperCitation(pendingPaperCitations[arxivId], pub['num_citations'] || 0);
+                        delete pendingPaperCitations[arxivId];
+                    }
+                });
+            }
+
+            Object.keys(pendingPaperCitations).forEach(function(arxivId) {
+                fetchPaperCitationFromApis(pendingPaperCitations[arxivId]);
+            });
         }).fail(function() {
             var totalCitEl = document.getElementById('total_cit');
             if (totalCitEl) totalCitEl.innerHTML = '-';
+
+            citationEles.forEach(function(el) {
+                fetchPaperCitationFromApis(el);
+            });
         });
     });
 </script>
