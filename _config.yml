@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Ozzy Chen"
-description              : "Undergraduate student at University of Nottingham, researching Large Visual Language Models and algorithm optimization."
+description              : "Undergraduate student at University of Nottingham and Research Assistant at HKUST(GZ) Di² Lab, researching Large Visual Language Models and algorithm optimization."
 repository               : "OzzyChen97/ozzychen97.github.io"
 google_scholar_stats_use_cdn : false
 
@@ -23,9 +23,9 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Ozzy Chen (陈卓)"
   avatar           : "images/profile.jpg"
-  bio              : "B.Sc. Student, University of Nottingham"
-  location         : "Ningbo, China"
-  employer         : "University of Nottingham"
+  bio              : "B.Sc. Student, University of Nottingham; RA, HKUST(GZ) Di² Lab"
+  location         : "Ningbo / Guangzhou, China"
+  employer         : "HKUST(GZ) Di² Lab"
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=x81ITIYAAAAJ"
   email            : "comfortableapple@gmail.com"

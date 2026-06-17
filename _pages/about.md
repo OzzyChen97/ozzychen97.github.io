@@ -12,12 +12,13 @@ redirect_from:
 
 I am an undergraduate student majoring in **Mathematics & Applied Mathematics** at the [University of Nottingham](https://www.nottingham.edu.cn/). My passion lies in the intersection of rigorous mathematical theory and practical algorithmic implementation.
 
-My research interest includes **Large Visual Language Models (LVLMs)**, **Algorithm Design**, and **Mathematical Modeling**. I am currently working as a Research Assistant at the [AI Center, Shenzhen University of Advanced Technology](https://www.suat-sz.edu.cn/), focusing on efficiency optimization and reasoning problems in long-context image understanding.
+My research interest includes **Large Visual Language Models (LVLMs)**, **Algorithm Design**, and **Mathematical Modeling**. I am currently working as a Research Assistant at the Di² Lab, [HKUST(GZ)](https://www.hkust-gz.edu.cn/), under the supervision of **Professor Yutao YUE**. My work focuses on efficient multimodal reasoning and long-context visual understanding.
 
 You can find my publications on <a href='https://scholar.google.com/citations?user=x81ITIYAAAAJ'>Google Scholar</a>. Total citations: <span id="total_cit">-</span>.
 
 
 # 🔥 News
+- *2026.06*: &nbsp;🚀 Joined Di² Lab at [HKUST(GZ)](https://www.hkust-gz.edu.cn/) as a Research Assistant, supervised by **Professor Yutao YUE**.
 - *2026.06*: &nbsp;🎉🎉 Our paper **TC-SSA: Token Compression via Semantic Slot Aggregation** is accepted at **MICCAI 2026**!
 - *2026.06*: &nbsp;🎉🎉 Our paper **SparseLearn: Learnable Token Sparsification for Efficient Gigapixel Whole Slide Image Reasoning** is under review at WAIC 2026!
 - *2026.03*: &nbsp;🎉🎉 Our paper **TC-SSA: Token Compression via Semantic Slot Aggregation** is now available on arXiv!
@@ -92,6 +93,25 @@ Jingzhi Chen, Landi He, **Zhuo Chen**, Xiaoyu Yang, Lijian Xu
         <li>Conducting research on Large Visual Language Models (LVLMs), studying efficiency optimization.</li>
         <li>Investigating reasoning problems in long-context image understanding.</li>
         <li>Working with models such as Qwen2.5-VL to bridge sensory input with cognitive understanding.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-info">
+      <div class="timeline-date">2026.06 - Present</div>
+      <div class="timeline-logo hkustgz-logo">
+        <img src="images/HKUSTGZ-Logo.png" alt="HKUST(GZ)">
+      </div>
+    </div>
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <h3>Research Assistant</h3>
+      <p class="timeline-institution">HKUST(GZ) — Di² Lab</p>
+      <p class="timeline-supervisor">Under the supervision of <strong>Professor Yutao YUE</strong></p>
+      <ul>
+        <li>Conducting research on efficient multimodal reasoning and long-context visual understanding.</li>
+        <li>Exploring algorithmic approaches for robust and scalable Large Visual Language Models.</li>
       </ul>
     </div>
   </div>
