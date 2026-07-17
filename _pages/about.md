@@ -12,13 +12,13 @@ redirect_from:
 
 I am an undergraduate student in **Mathematics & Applied Mathematics** at the [University of Nottingham Ningbo China](https://www.nottingham.edu.cn/). My work sits at the intersection of mathematical foundations and practical machine learning systems.
 
-I am currently a Research Assistant at the Di² Lab, [HKUST(GZ)](https://www.hkust-gz.edu.cn/), under the supervision of **Professor Yutao YUE**. My research focuses on **efficient multimodal reasoning**, **long-context visual understanding**, and algorithms that make large vision-language models more scalable and reliable.
+I am currently a Research Assistant at the Di² Lab, [HKUST(GZ)](https://www.hkust-gz.edu.cn/), under the supervision of **Associate Professor Yutao YUE**. My research focuses on **efficient multimodal reasoning**, **long-context visual understanding**, and algorithms that make large vision-language models more scalable and reliable.
 
 You can find my publications on <a href='https://scholar.google.com/citations?user=x81ITIYAAAAJ'>Google Scholar</a>. Total citations: <span id="total_cit">-</span>.
 
 
 # 🔥 News
-- *2026.06*: &nbsp;🚀 Joined Di² Lab at [HKUST(GZ)](https://www.hkust-gz.edu.cn/) as a Research Assistant, supervised by **Professor Yutao YUE**.
+- *2026.06*: &nbsp;🚀 Joined Di² Lab at [HKUST(GZ)](https://www.hkust-gz.edu.cn/) as a Research Assistant, supervised by **Associate Professor Yutao YUE**.
 - *2026.06*: &nbsp;🎉🎉 Our paper **TC-SSA: Token Compression via Semantic Slot Aggregation** was accepted to **MICCAI 2026**!
 - *2026.06*: &nbsp;📄 **Learnable Token Sparsification for Efficient Gigapixel Whole Slide Image Reasoning** is now available on [arXiv](https://arxiv.org/abs/2606.08641).
 - *2026.03*: &nbsp;📄 **TC-SSA: Token Compression via Semantic Slot Aggregation** was released on arXiv.
@@ -108,7 +108,7 @@ Jingzhi Chen, Landi He, **Zhuo Chen**, Shawn Young, Lijian Xu
     <div class="timeline-content">
       <h3>Research Assistant</h3>
       <p class="timeline-institution">HKUST(GZ) — Di² Lab</p>
-      <p class="timeline-supervisor">Under the supervision of <strong>Professor Yutao YUE</strong></p>
+      <p class="timeline-supervisor">Under the supervision of <strong>Associate Professor Yutao YUE</strong></p>
       <ul>
         <li>Conducting research on efficient multimodal reasoning and long-context visual understanding.</li>
         <li>Exploring algorithmic approaches for robust and scalable Large Visual Language Models.</li>
