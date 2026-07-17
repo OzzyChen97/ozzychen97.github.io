@@ -46,8 +46,13 @@
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    border-bottom: 1px #efefef solid;
-    padding: 2em 0 2em 0;
+    gap: 2em;
+    margin: 1.5em 0;
+    padding: 1.75em;
+    border: 1px solid #e5e8ec;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(31, 45, 61, 0.07);
     
 
     .paper-box-image{
@@ -57,7 +62,9 @@
         order: 2;
         img {
             max-width: 400px;
-            box-shadow: 3px 3px 6px #888;
+            border: 1px solid #e5e8ec;
+            border-radius: 6px;
+            box-shadow: none;
             object-fit: cover;
         }
     }
@@ -65,6 +72,11 @@
     .paper-box-text{
         max-width: 100%;
         order: 1;
+        line-height: 1.65;
+
+        ul {
+            margin-top: 0.8em;
+        }
     }
     
     @include breakpoint($medium) {
@@ -77,8 +89,8 @@
         
         .paper-box-text{
             justify-content: left;
-            padding-left: 2em;
-            max-width: 60%;
+            padding-left: 0;
+            max-width: calc(60% - 2em);
             order: 2;
         }
 
@@ -98,12 +110,19 @@ h1:before, .anchor:before {
 }
 
 .badge {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 0.35rem 0.75rem;
     position: absolute;
-    margin-top: .5em;
-    margin-left: -.5em;
+    margin-top: .65em;
+    margin-left: -.35em;
     color: white;
     background-color: #00369f;
-    font-size: .8em;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.16);
+    font-size: .72em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.badge-arxiv {
+    background-color: #b31b1b;
 }

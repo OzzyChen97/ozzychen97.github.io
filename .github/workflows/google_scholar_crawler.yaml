@@ -1,10 +1,13 @@
 name: Get Citation Data
 
 on:
-  page_build:
   schedule:
     - cron: '0 8 * * *'
   workflow_dispatch:
+
+concurrency:
+  group: google-scholar-citations
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -12,6 +15,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
@@ -21,6 +25,8 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
+          cache: pip
+          cache-dependency-path: google_scholar_crawler/requirements.txt
 
       - name: Install dependencies
         run: |
@@ -28,13 +34,20 @@ jobs:
           pip install -r requirements.txt
 
       - name: Fetch citation data
+        id: citations
         run: |
           cd ./google_scholar_crawler
-          python main.py
+          if timeout 12m python main.py; then
+            echo "updated=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::Google Scholar is temporarily unavailable; keeping the previous citation data."
+            echo "updated=false" >> "$GITHUB_OUTPUT"
+          fi
         env:
           GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
 
       - name: Push to google-scholar-stats branch
+        if: steps.citations.outputs.updated == 'true'
         run: |
           cd ./google_scholar_crawler/results
           git init

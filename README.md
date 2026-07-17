@@ -36,7 +36,7 @@ Some examples:
 1. Configure the google scholar citation crawler:
     1. Find your google scholar ID in the url of your google scholar page (e.g., https://scholar.google.com/citations?user=SCHOLAR_ID), where `SCHOLAR_ID` is your google scholar ID.
     1. Set GOOGLE_SCHOLAR_ID variable to your google scholar ID in `Settings -> Secrets -> Actions -> New repository secret` of the REPO website with `name=GOOGLE_SCHOLAR_ID` and `value=SCHOLAR_ID`.
-    1. Click the `Action` of the REPO website and enable the workflows by clicking *"I understand my workflows, go ahead and enable them"*. This github action will generate google scholar citation stats data `gs_data.json` in `google-scholar-stats` branch of your REPO. When you update your main branch, this action will be triggered. This action will also be trigger 08:00 UTC everyday.
+    1. Click the `Action` tab of the REPO website and enable workflows by clicking *"I understand my workflows, go ahead and enable them"*. The GitHub Action runs once per day at 08:00 UTC and publishes Google Scholar citation data to the `google-scholar-stats` branch. It can also be started manually. If Google Scholar is temporarily unavailable, the workflow keeps the previous citation data.
 1. Generate favicon using [favicon-generator](https://redketchup.io/favicon-generator) and download all generated files to `REPO/images`.
 1. Modify the configuration of your homepage `_config.yml`:
     1. `title`: the title of your homepage

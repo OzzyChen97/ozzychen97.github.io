@@ -13,35 +13,7 @@
             }
         }
 
-        function fetchPaperCitationFromApis(el) {
-            var arxivId = el.getAttribute('data-arxiv');
-            if (!arxivId) return;
-            arxivId = normalizeArxivId(arxivId);
-
-            $.getJSON('https://api.openalex.org/works/doi:10.48550/arXiv.' + arxivId + '?select=id,cited_by_count', function(data) {
-                if (data && data.cited_by_count !== undefined) {
-                    setPaperCitation(el, data.cited_by_count);
-                } else {
-                    fetchPaperCitationFromSemanticScholar(el, arxivId);
-                }
-            }).fail(function() {
-                fetchPaperCitationFromSemanticScholar(el, arxivId);
-            });
-        }
-
-        function fetchPaperCitationFromSemanticScholar(el, arxivId) {
-            $.getJSON('https://api.semanticscholar.org/graph/v1/paper/arXiv:' + arxivId + '?fields=citationCount', function(data) {
-                if (data && data.citationCount !== undefined) {
-                    setPaperCitation(el, data.citationCount);
-                } else {
-                    setPaperCitation(el, 0);
-                }
-            }).fail(function() {
-                setPaperCitation(el, 0);
-            });
-        }
-
-        // Fetch total citations from Google Scholar data (if available)
+        // Read the citation snapshot published by the daily workflow.
         {% if site.google_scholar_stats_use_cdn %}
         var gsDataBaseUrl = 'https://cdn.jsdelivr.net/gh/{{ site.repository }}@'
         {% else %}
@@ -76,14 +48,14 @@
             }
 
             Object.keys(pendingPaperCitations).forEach(function(arxivId) {
-                fetchPaperCitationFromApis(pendingPaperCitations[arxivId]);
+                setPaperCitation(pendingPaperCitations[arxivId], '-');
             });
         }).fail(function() {
             var totalCitEl = document.getElementById('total_cit');
             if (totalCitEl) totalCitEl.innerHTML = '-';
 
             citationEles.forEach(function(el) {
-                fetchPaperCitationFromApis(el);
+                setPaperCitation(el, '-');
             });
         });
     });

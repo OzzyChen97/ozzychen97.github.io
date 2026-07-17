@@ -52,9 +52,9 @@ def main():
             v['author_pub_id']: v for v in author.get('publications', [])
         }
     except Exception as e:
-        print(f"Warning: could not fetch publication-level citation data: {e}")
-        print("Continuing with total citation data only.")
-        author['publications'] = {}
+        print(f"Error fetching publication-level citation data: {e}")
+        print("Keeping the previous complete citation snapshot.")
+        sys.exit(1)
 
     print(f"Author: {name}")
     print(f"Total citations: {author.get('citedby', 'N/A')}")

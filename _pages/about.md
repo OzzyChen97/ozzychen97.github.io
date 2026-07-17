@@ -10,18 +10,18 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am an undergraduate student majoring in **Mathematics & Applied Mathematics** at the [University of Nottingham](https://www.nottingham.edu.cn/). My passion lies in the intersection of rigorous mathematical theory and practical algorithmic implementation.
+I am an undergraduate student in **Mathematics & Applied Mathematics** at the [University of Nottingham Ningbo China](https://www.nottingham.edu.cn/). My work sits at the intersection of mathematical foundations and practical machine learning systems.
 
-My research interest includes **Large Visual Language Models (LVLMs)**, **Algorithm Design**, and **Mathematical Modeling**. I am currently working as a Research Assistant at the Di² Lab, [HKUST(GZ)](https://www.hkust-gz.edu.cn/), under the supervision of **Professor Yutao YUE**. My work focuses on efficient multimodal reasoning and long-context visual understanding.
+I am currently a Research Assistant at the Di² Lab, [HKUST(GZ)](https://www.hkust-gz.edu.cn/), under the supervision of **Professor Yutao YUE**. My research focuses on **efficient multimodal reasoning**, **long-context visual understanding**, and algorithms that make large vision-language models more scalable and reliable.
 
 You can find my publications on <a href='https://scholar.google.com/citations?user=x81ITIYAAAAJ'>Google Scholar</a>. Total citations: <span id="total_cit">-</span>.
 
 
 # 🔥 News
 - *2026.06*: &nbsp;🚀 Joined Di² Lab at [HKUST(GZ)](https://www.hkust-gz.edu.cn/) as a Research Assistant, supervised by **Professor Yutao YUE**.
-- *2026.06*: &nbsp;🎉🎉 Our paper **TC-SSA: Token Compression via Semantic Slot Aggregation** is accepted at **MICCAI 2026**!
-- *2026.06*: &nbsp;🎉🎉 Our paper **SparseLearn: Learnable Token Sparsification for Efficient Gigapixel Whole Slide Image Reasoning** is under review at WAIC 2026!
-- *2026.03*: &nbsp;🎉🎉 Our paper **TC-SSA: Token Compression via Semantic Slot Aggregation** is now available on arXiv!
+- *2026.06*: &nbsp;🎉🎉 Our paper **TC-SSA: Token Compression via Semantic Slot Aggregation** was accepted to **MICCAI 2026**!
+- *2026.06*: &nbsp;📄 **Learnable Token Sparsification for Efficient Gigapixel Whole Slide Image Reasoning** is now available on [arXiv](https://arxiv.org/abs/2606.08641).
+- *2026.03*: &nbsp;📄 **TC-SSA: Token Compression via Semantic Slot Aggregation** was released on arXiv.
 - *2025.07*: &nbsp;🔬 Joined the Computer Vision and Recognition Center (AI觉-知研究中心) at Shenzhen University of Advanced Technology as a Research Assistant.
 
 # 📝 Publications 
@@ -29,30 +29,30 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">MICCAI 2026</div><img src='images/tc_ssa.png' alt="TC-SSA" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[TC-SSA: Token Compression via Semantic Slot Aggregation](https://arxiv.org/pdf/2603.01143v1)
+[TC-SSA: Token Compression via Semantic Slot Aggregation for Gigapixel Pathology Reasoning](https://arxiv.org/abs/2603.01143)
 
-**Zhuo Chen**, Shawn Young, Lijian Xu
+**Zhuo Chen**, Xiaoyu Yang, Lijian Xu
 
 <span class="paper_citation" data-arxiv="2603.01143"></span>
 
-- Proposed a learnable token-budgeting mechanism for Gigapixel Whole-Slide Images.
-- Reframed spatial reasoning as aggregation-based compression via gated assignment (Top-2 routing).
-- Achieved **76.78% accuracy** on SlideChat and **120× efficiency gain**.
+- Aggregates all WSI patch features into a fixed budget of 32 semantic slots through sparse Top-2 routing.
+- Retains global slide evidence with only **1.7% of the original visual tokens** and **1.72T FLOPs**.
+- Achieves **78.34% overall accuracy** and **77.14% diagnosis accuracy** on SlideBench (TCGA).
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">WAIC 2026 Under Review</div><img src='images/sparselearn.png' alt="SparseLearn" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge badge-arxiv">arXiv</div><img src='images/sparselearn.png' alt="SparseLearn" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[Learnable Token Sparsification for Efficient Gigapixel Whole Slide Image Reasoning](https://arxiv.org/pdf/2606.08641v1)
+[Learnable Token Sparsification for Efficient Gigapixel Whole Slide Image Reasoning](https://arxiv.org/abs/2606.08641)
 
-Jingzhi Chen, Landi He, **Zhuo Chen**, Xiaoyu Yang, Lijian Xu
+Jingzhi Chen, Landi He, **Zhuo Chen**, Shawn Young, Lijian Xu
 
 <span class="paper_citation" data-arxiv="2606.08641"></span>
 
-- Reformulated token reduction in whole slide images as a trainable sparsification problem via a decoupled routing architecture (**SparseLearn**).
-- Introduced a variance-preserving noise gate with differentiable Soft Top-K and a diagonal attention denoiser.
-- Compressed visual sequences to just **32 tokens (0.78%)**, achieving **73.32% accuracy** on SlideBench (TCGA) with strong zero-shot generalization.
+- Reframes WSI token pruning as an end-to-end learnable sparsification problem with decoupled training and inference.
+- Combines a variance-preserving noise gate, differentiable Soft Top-K, and diagonal-attention denoising in **SparseLearn**.
+- At inference, deterministic Hard Top-K retains just **32 tokens (0.78%)** and reaches **73.32% overall accuracy** on SlideBench (TCGA).
 </div>
 </div>
 
