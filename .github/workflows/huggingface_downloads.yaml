@@ -1,0 +1,48 @@
+name: Get Hugging Face Dataset Stats
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/huggingface_downloads.yaml'
+      - 'huggingface_stats/**'
+  schedule:
+    - cron: '30 8 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: huggingface-dataset-stats
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      HF_DATASET_ID: OzzyChen97/TC-SSA
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch total downloads
+        run: python huggingface_stats/main.py
+
+      - name: Publish dataset stats
+        run: |
+          cd huggingface_stats/results
+          git init
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add *.json
+          git commit -m "Update Hugging Face dataset stats"
+          remote_repo="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
+          git push "${remote_repo}" HEAD:huggingface-stats --force

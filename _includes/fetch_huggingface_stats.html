@@ -1,0 +1,17 @@
+<script>
+    $(document).ready(function () {
+        var totalDownloadsEl = document.getElementById('tc_ssa_total_downloads');
+        if (!totalDownloadsEl) return;
+
+        var statsUrl = 'https://raw.githubusercontent.com/{{ site.repository }}/huggingface-stats/hf_data.json';
+
+        $.getJSON(statsUrl + '?t=' + Date.now(), function (data) {
+            var totalDownloads = data && data['total_downloads'];
+            if (Number.isInteger(totalDownloads) && totalDownloads >= 0) {
+                totalDownloadsEl.textContent = totalDownloads.toLocaleString('en-US');
+            }
+        }).fail(function () {
+            totalDownloadsEl.textContent = '-';
+        });
+    });
+</script>

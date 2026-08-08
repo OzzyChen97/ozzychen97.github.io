@@ -18,6 +18,7 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
 
 
 # 🔥 News
+- *2026.08*: &nbsp;📦 Released the [TC-SSA dataset](https://huggingface.co/datasets/OzzyChen97/TC-SSA) on Hugging Face.
 - *2026.08*: &nbsp;🌐 Joined [Assistant Professor Xiao Luo](https://luoxiao12.github.io/) at the [University of Wisconsin–Madison](https://www.wisc.edu/) as a Remote Research Assistant.
 - *2026.06*: &nbsp;🚀 Joined Di² Lab at [HKUST(GZ)](https://www.hkust-gz.edu.cn/) as a Research Assistant, supervised by **Associate Professor Yutao YUE**.
 - *2026.06*: &nbsp;🎉🎉 Our paper **TC-SSA: Token Compression via Semantic Slot Aggregation** was accepted to **MICCAI 2026**!
@@ -35,6 +36,8 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
 **Zhuo Chen**, Xiaoyu Yang, Lijian Xu
 
 <span class="paper_citation" data-arxiv="2603.01143"></span>
+
+<span class="dataset-stat">📦 <a href="https://huggingface.co/datasets/OzzyChen97/TC-SSA">Dataset</a> · Total downloads: <strong id="tc_ssa_total_downloads">-</strong></span>
 
 - Aggregates all WSI patch features into a fixed budget of 32 semantic slots through sparse Top-2 routing.
 - Retains global slide evidence with only **1.7% of the original visual tokens** and **1.72T FLOPs**.

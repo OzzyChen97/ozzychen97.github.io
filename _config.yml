@@ -67,6 +67,7 @@ include:
 exclude:
   - docs
   - google_scholar_crawler
+  - huggingface_stats
   - "*.sublime-project"
   - "*.sublime-workspace"
   - .asset-cache
