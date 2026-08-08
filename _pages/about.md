@@ -12,12 +12,13 @@ redirect_from:
 
 I am an undergraduate student in **Mathematics & Applied Mathematics** at the [University of Nottingham Ningbo China](https://www.nottingham.edu.cn/). My work sits at the intersection of mathematical foundations and practical machine learning systems.
 
-I am currently a Research Assistant at the Di² Lab, [HKUST(GZ)](https://www.hkust-gz.edu.cn/), under the supervision of **Associate Professor Yutao YUE**. My research focuses on **efficient multimodal reasoning**, **long-context visual understanding**, and algorithms that make large vision-language models more scalable and reliable.
+My primary research affiliation is with the Di² Lab at [HKUST(GZ)](https://www.hkust-gz.edu.cn/), where I am a Research Assistant under the supervision of **Associate Professor Yutao YUE**. I also work remotely as a Research Assistant with [Assistant Professor Xiao Luo](https://luoxiao12.github.io/) at the [University of Wisconsin–Madison](https://www.wisc.edu/). My research focuses on **efficient multimodal reasoning**, **long-context visual understanding**, and algorithms that make large vision-language models more scalable and reliable.
 
 You can find my publications on <a href='https://scholar.google.com/citations?user=x81ITIYAAAAJ'>Google Scholar</a>. Total citations: <span id="total_cit">-</span>.
 
 
 # 🔥 News
+- *2026.08*: &nbsp;🌐 Joined [Assistant Professor Xiao Luo](https://luoxiao12.github.io/) at the [University of Wisconsin–Madison](https://www.wisc.edu/) as a Remote Research Assistant.
 - *2026.06*: &nbsp;🚀 Joined Di² Lab at [HKUST(GZ)](https://www.hkust-gz.edu.cn/) as a Research Assistant, supervised by **Associate Professor Yutao YUE**.
 - *2026.06*: &nbsp;🎉🎉 Our paper **TC-SSA: Token Compression via Semantic Slot Aggregation** was accepted to **MICCAI 2026**!
 - *2026.06*: &nbsp;📄 **Learnable Token Sparsification for Efficient Gigapixel Whole Slide Image Reasoning** is now available on [arXiv](https://arxiv.org/abs/2606.08641).
@@ -79,7 +80,7 @@ Jingzhi Chen, Landi He, **Zhuo Chen**, Shawn Young, Lijian Xu
 
   <div class="timeline-item">
     <div class="timeline-info">
-      <div class="timeline-date">2025.07 - Present</div>
+      <div class="timeline-date">2025.07 - 2026.08</div>
       <div class="timeline-logo">
         <img src="images/SUAT-Logo.png" alt="SUAT">
       </div>
@@ -113,6 +114,21 @@ Jingzhi Chen, Landi He, **Zhuo Chen**, Shawn Young, Lijian Xu
         <li>Conducting research on efficient multimodal reasoning and long-context visual understanding.</li>
         <li>Exploring algorithmic approaches for robust and scalable Large Visual Language Models.</li>
       </ul>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-info">
+      <div class="timeline-date">2026.08 - Present</div>
+      <div class="timeline-logo uwmadison-logo">
+        <img src="images/UWMadison-Logo.png" alt="University of Wisconsin–Madison">
+      </div>
+    </div>
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <h3>Remote Research Assistant</h3>
+      <p class="timeline-institution"><a href="https://www.wisc.edu/">University of Wisconsin–Madison</a> — Department of Statistics</p>
+      <p class="timeline-supervisor">Under the supervision of <strong><a href="https://luoxiao12.github.io/">Assistant Professor Xiao Luo</a></strong></p>
     </div>
   </div>
 
