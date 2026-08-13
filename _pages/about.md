@@ -12,7 +12,7 @@ redirect_from:
 
 I am an undergraduate student in **Mathematics & Applied Mathematics** at the [University of Nottingham Ningbo China](https://www.nottingham.edu.cn/). My work sits at the intersection of mathematical foundations and practical machine learning systems.
 
-My primary research affiliation is with the Di² Lab at [HKUST(GZ)](https://www.hkust-gz.edu.cn/), where I am a Research Assistant under the supervision of **Associate Professor Yutao YUE**. I also work remotely as a Research Assistant with [Assistant Professor Xiao Luo](https://luoxiao12.github.io/) at the [University of Wisconsin–Madison](https://www.wisc.edu/). My research focuses on **efficient multimodal reasoning**, **long-context visual understanding**, and algorithms that make large vision-language models more scalable and reliable.
+My primary research affiliation is with the Di² Lab at [HKUST(GZ)](https://www.hkust-gz.edu.cn/), where I work on **text-to-motion generation** and **embodied AI** under the supervision of **Associate Professor Yutao YUE**. I also work remotely with [Assistant Professor Xiao Luo](https://luoxiao12.github.io/) at the [University of Wisconsin–Madison](https://www.wisc.edu/) on efficient Vision-Language-Action models, including **QuantVLA-related research**. Previously, at the Shenzhen University of Advanced Technology, I worked on token-efficient gigapixel pathology reasoning and developed **TC-SSA**.
 
 You can find my publications on <a href='https://scholar.google.com/citations?user=x81ITIYAAAAJ'>Google Scholar</a>. Total citations: <span id="total_cit">-</span>.
 
@@ -94,9 +94,8 @@ Jingzhi Chen, Landi He, **Zhuo Chen**, Shawn Young, Lijian Xu
       <p class="timeline-institution">Shenzhen University of Advanced Technology — AI Center (Computer Vision and Recognition Center)</p>
       <p class="timeline-supervisor">Under the supervision of <strong>Associate Professor Lijian Xu</strong></p>
       <ul>
-        <li>Conducting research on Large Visual Language Models (LVLMs), studying efficiency optimization.</li>
-        <li>Investigating reasoning problems in long-context image understanding.</li>
-        <li>Working with models such as Qwen2.5-VL to bridge sensory input with cognitive understanding.</li>
+        <li>Developed <a href="https://arxiv.org/abs/2603.01143">TC-SSA</a>, a semantic-slot token compression framework for efficient gigapixel whole-slide image reasoning.</li>
+        <li>Compressed thousands of pathology patch tokens into 32 semantic slots while preserving global slide-level evidence.</li>
       </ul>
     </div>
   </div>
@@ -114,8 +113,8 @@ Jingzhi Chen, Landi He, **Zhuo Chen**, Shawn Young, Lijian Xu
       <p class="timeline-institution">HKUST(GZ) — Di² Lab</p>
       <p class="timeline-supervisor">Under the supervision of <strong>Associate Professor Yutao YUE</strong></p>
       <ul>
-        <li>Conducting research on efficient multimodal reasoning and long-context visual understanding.</li>
-        <li>Exploring algorithmic approaches for robust and scalable Large Visual Language Models.</li>
+        <li>Conducting research on text-to-motion generation and human motion synthesis from natural-language instructions.</li>
+        <li>Exploring embodied AI systems that connect multimodal perception, language understanding, and action generation.</li>
       </ul>
     </div>
   </div>
@@ -132,6 +131,10 @@ Jingzhi Chen, Landi He, **Zhuo Chen**, Shawn Young, Lijian Xu
       <h3>Remote Research Assistant</h3>
       <p class="timeline-institution"><a href="https://www.wisc.edu/">University of Wisconsin–Madison</a> — Department of Statistics</p>
       <p class="timeline-supervisor">Under the supervision of <strong><a href="https://luoxiao12.github.io/">Assistant Professor Xiao Luo</a></strong></p>
+      <ul>
+        <li>Working on QuantVLA-related research for efficient Vision-Language-Action models.</li>
+        <li>Investigating post-training quantization and memory-efficient deployment for embodied AI systems.</li>
+      </ul>
     </div>
   </div>
 
