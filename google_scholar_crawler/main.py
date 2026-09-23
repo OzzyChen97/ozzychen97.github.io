@@ -2,6 +2,7 @@ import json
 import os
 import re
 import sys
+import time
 from datetime import datetime, timezone
 from urllib.parse import parse_qs, urlparse
 
@@ -12,6 +13,7 @@ from urllib3.util.retry import Retry
 
 
 PROFILE_URL = "https://scholar.google.com/citations"
+TRANSLATED_PROFILE_URL = "https://scholar-google-com.translate.goog/citations"
 
 
 def get_author_id():
@@ -123,26 +125,57 @@ def parse_publications(soup):
     return publications
 
 
-def fetch_author(author_id):
-    response = make_session().get(
+def has_captcha(html):
+    soup = BeautifulSoup(html, "html.parser")
+    return soup.select_one("#gs_captcha_ccl, #recaptcha, #captcha-form") is not None
+
+
+def fetch_profile_html(author_id):
+    session = make_session()
+    params = {
+        "hl": "en",
+        "user": author_id,
+        "view_op": "list_works",
+        "pagesize": 100,
+    }
+    response = session.get(
         PROFILE_URL,
-        params={
-            "hl": "en",
-            "user": author_id,
-            "view_op": "list_works",
-            "pagesize": 100,
-        },
+        params=params,
         timeout=(5, 20),
     )
-    if response.status_code in (403, 429):
-        raise RuntimeError(
-            f"Google Scholar rejected the request with HTTP {response.status_code}."
-        )
-    response.raise_for_status()
+    if response.ok and not has_captcha(response.text):
+        return response.text
 
-    soup = BeautifulSoup(response.text, "html.parser")
-    if soup.select_one("#gs_captcha_ccl, #recaptcha, #captcha-form"):
-        raise RuntimeError("Google Scholar returned a CAPTCHA page.")
+    if response.status_code not in (403, 429) and not has_captcha(response.text):
+        response.raise_for_status()
+
+    print(
+        "Direct Google Scholar access was blocked; retrying through Google Translate.",
+        file=sys.stderr,
+    )
+    proxy_response = session.get(
+        TRANSLATED_PROFILE_URL,
+        params={
+            **params,
+            "_citation_snapshot": str(int(time.time())),
+            "_x_tr_sl": "auto",
+            "_x_tr_tl": "en",
+            "_x_tr_hl": "en",
+        },
+        timeout=(5, 30),
+    )
+    proxy_response.raise_for_status()
+    if has_captcha(proxy_response.text):
+        raise RuntimeError(
+            "Google Scholar returned a CAPTCHA page through Google Translate."
+        )
+    return proxy_response.text
+
+
+def fetch_author(author_id):
+    html = fetch_profile_html(author_id)
+
+    soup = BeautifulSoup(html, "html.parser")
 
     metrics = parse_metrics(soup)
     publications = parse_publications(soup)

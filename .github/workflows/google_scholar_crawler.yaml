@@ -20,7 +20,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -42,7 +42,7 @@ jobs:
       - name: Fetch citation data
         run: |
           cd ./google_scholar_crawler
-          python main.py
+          timeout 120s python main.py
         env:
           GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
 
