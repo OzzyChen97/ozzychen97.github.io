@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: '0 8 * * *'
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/google_scholar_crawler.yaml'
+      - 'google_scholar_crawler/**'
 
 concurrency:
   group: google-scholar-citations
@@ -34,20 +40,13 @@ jobs:
           pip install -r requirements.txt
 
       - name: Fetch citation data
-        id: citations
         run: |
           cd ./google_scholar_crawler
-          if timeout 12m python main.py; then
-            echo "updated=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "::warning::Google Scholar is temporarily unavailable; keeping the previous citation data."
-            echo "updated=false" >> "$GITHUB_OUTPUT"
-          fi
+          timeout 12m python main.py
         env:
           GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
 
       - name: Push to google-scholar-stats branch
-        if: steps.citations.outputs.updated == 'true'
         run: |
           cd ./google_scholar_crawler/results
           git init

@@ -1,1 +1,3 @@
-scholarly>=1.7.0
+scholarly==1.7.11
+# scholarly 1.7.11 imports the legacy bibtexparser 1.x API.
+bibtexparser==1.4.4
