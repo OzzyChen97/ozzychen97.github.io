@@ -42,7 +42,7 @@ jobs:
       - name: Fetch citation data
         run: |
           cd ./google_scholar_crawler
-          timeout 12m python main.py
+          timeout 90s python main.py
         env:
           GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
 

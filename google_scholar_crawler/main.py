@@ -1,86 +1,229 @@
-from scholarly import scholarly
 import json
-from datetime import datetime
 import os
 import re
 import sys
+from datetime import datetime, timezone
+from urllib.parse import parse_qs, urlparse
+
+import requests
+from bs4 import BeautifulSoup
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+
+
+PROFILE_URL = "https://scholar.google.com/citations"
+
 
 def get_author_id():
-    author_id = os.environ.get('GOOGLE_SCHOLAR_ID')
+    author_id = os.environ.get("GOOGLE_SCHOLAR_ID")
     if author_id:
         return author_id
 
-    config_path = os.path.join(os.path.dirname(__file__), '..', '_config.yml')
+    config_path = os.path.join(os.path.dirname(__file__), "..", "_config.yml")
     try:
-        with open(config_path, 'r', encoding='utf-8') as config_file:
+        with open(config_path, "r", encoding="utf-8") as config_file:
             config = config_file.read()
     except OSError:
         return None
 
-    match = re.search(r'googlescholar\s*:\s*"?[^"\n]*[?&]user=([^"&\s]+)', config)
-    if match:
-        return match.group(1)
+    match = re.search(
+        r'googlescholar\s*:\s*"?[^"\n]*[?&]user=([^"&\s]+)', config
+    )
+    return match.group(1) if match else None
 
-    return None
 
-def main():
-    script_dir = os.path.dirname(__file__)
-
-    # Fetch author profile from Google Scholar
-    author_id = get_author_id()
-    if not author_id:
-        print("Error: Google Scholar ID was not found.")
-        print("Set GOOGLE_SCHOLAR_ID in repo secrets or add author.googlescholar to _config.yml.")
-        sys.exit(1)
-
-    print(f"Fetching data for Google Scholar ID: {author_id}")
-
-    try:
-        author = scholarly.search_author_id(author_id)
-        scholarly.fill(author, sections=['basics', 'indices', 'counts'])
-    except Exception as e:
-        print(f"Error fetching Google Scholar data: {e}")
-        print("This may be due to rate limiting or network issues. Try running the workflow again.")
-        sys.exit(1)
-
-    name = author['name']
-    author['updated'] = str(datetime.now())
-
-    try:
-        scholarly.fill(author, sections=['publications'])
-        author['publications'] = {
-            v['author_pub_id']: v for v in author.get('publications', [])
+def make_session():
+    retry = Retry(
+        total=1,
+        connect=1,
+        read=1,
+        status=1,
+        backoff_factor=0.5,
+        status_forcelist=(500, 502, 503, 504),
+        allowed_methods=frozenset({"GET"}),
+        respect_retry_after_header=True,
+    )
+    session = requests.Session()
+    session.headers.update(
+        {
+            "User-Agent": (
+                "Mozilla/5.0 (X11; Linux x86_64) "
+                "AppleWebKit/537.36 Chrome/120 Safari/537.36"
+            ),
+            "Accept-Language": "en-US,en;q=0.9",
         }
-    except Exception as e:
-        print(f"Error fetching publication-level citation data: {e}")
-        print("Keeping the previous complete citation snapshot.")
-        sys.exit(1)
+    )
+    session.mount("https://", HTTPAdapter(max_retries=retry))
+    return session
 
-    print(f"Author: {name}")
-    print(f"Total citations: {author.get('citedby', 'N/A')}")
-    print(f"Publications: {len(author['publications'])}")
 
-    for pub_id, pub in author['publications'].items():
-        title = pub.get('bib', {}).get('title', 'Untitled')
-        citations = pub.get('num_citations', 0)
-        print(f"  - {title} (citations: {citations})")
+def parse_number(text):
+    match = re.search(r"\d[\d,]*", text or "")
+    return int(match.group(0).replace(",", "")) if match else 0
 
-    # Write full data
-    results_dir = os.path.join(script_dir, 'results')
+
+def parse_metrics(soup):
+    table = soup.select_one("#gsc_rsb_st")
+    if table is None:
+        raise ValueError("Google Scholar metrics table was not found.")
+
+    metrics = {}
+    for row in table.select("tbody tr"):
+        cells = row.select("td")
+        if len(cells) < 2:
+            continue
+        label = cells[0].get_text(" ", strip=True)
+        metrics[label] = [
+            parse_number(cell.get_text(" ", strip=True)) for cell in cells[1:]
+        ]
+
+    if "Citations" not in metrics or not metrics["Citations"]:
+        raise ValueError("Google Scholar citation total was not found.")
+    return metrics
+
+
+def parse_publications(soup):
+    publications = {}
+    rows = soup.select("#gsc_a_b tr.gsc_a_tr")
+    if not rows:
+        raise ValueError("Google Scholar publication rows were not found.")
+
+    for index, row in enumerate(rows):
+        title_el = row.select_one(".gsc_a_at")
+        if title_el is None:
+            continue
+
+        href = title_el.get("href", "")
+        query = parse_qs(urlparse(href).query)
+        pub_id = query.get("citation_for_view", [f"publication-{index}"])[0]
+        gray_lines = row.select(".gsc_a_t .gs_gray")
+        authors = gray_lines[0].get_text(" ", strip=True) if gray_lines else ""
+        citation = gray_lines[1].get_text("", strip=True) if len(gray_lines) > 1 else ""
+        year_el = row.select_one(".gsc_a_y span")
+        count_el = row.select_one(".gsc_a_ac")
+
+        publications[pub_id] = {
+            "container_type": "Publication",
+            "source": "AUTHOR_PUBLICATION_ENTRY",
+            "bib": {
+                "title": title_el.get_text(" ", strip=True),
+                "author": authors,
+                "pub_year": year_el.get_text(" ", strip=True) if year_el else "",
+                "citation": citation,
+            },
+            "filled": False,
+            "author_pub_id": pub_id,
+            "num_citations": parse_number(
+                count_el.get_text(" ", strip=True) if count_el else ""
+            ),
+        }
+
+    if not publications:
+        raise ValueError("Google Scholar publications could not be parsed.")
+    return publications
+
+
+def fetch_author(author_id):
+    response = make_session().get(
+        PROFILE_URL,
+        params={
+            "hl": "en",
+            "user": author_id,
+            "view_op": "list_works",
+            "pagesize": 100,
+        },
+        timeout=(5, 20),
+    )
+    if response.status_code in (403, 429):
+        raise RuntimeError(
+            f"Google Scholar rejected the request with HTTP {response.status_code}."
+        )
+    response.raise_for_status()
+
+    soup = BeautifulSoup(response.text, "html.parser")
+    if soup.select_one("#gs_captcha_ccl, #recaptcha, #captcha-form"):
+        raise RuntimeError("Google Scholar returned a CAPTCHA page.")
+
+    metrics = parse_metrics(soup)
+    publications = parse_publications(soup)
+    name_el = soup.select_one("#gsc_prf_in")
+    affiliation_el = soup.select_one("#gsc_prf_i .gsc_prf_il")
+
+    def metric(name, column=0):
+        values = metrics.get(name, [])
+        return values[column] if len(values) > column else 0
+
+    return {
+        "container_type": "Author",
+        "source": "AUTHOR_PROFILE_PAGE",
+        "scholar_id": author_id,
+        "name": name_el.get_text(" ", strip=True) if name_el else "",
+        "affiliation": (
+            affiliation_el.get_text(" ", strip=True) if affiliation_el else ""
+        ),
+        "citedby": metric("Citations"),
+        "citedby5y": metric("Citations", 1),
+        "hindex": metric("h-index"),
+        "hindex5y": metric("h-index", 1),
+        "i10index": metric("i10-index"),
+        "i10index5y": metric("i10-index", 1),
+        "publications": publications,
+        "updated": datetime.now(timezone.utc).isoformat(),
+    }
+
+
+def write_results(author):
+    results_dir = os.path.join(os.path.dirname(__file__), "results")
     os.makedirs(results_dir, exist_ok=True)
-    with open(os.path.join(results_dir, 'gs_data.json'), 'w') as outfile:
+
+    with open(
+        os.path.join(results_dir, "gs_data.json"), "w", encoding="utf-8"
+    ) as outfile:
         json.dump(author, outfile, ensure_ascii=False, indent=2)
 
-    # Write shields.io compatible data
     shieldio_data = {
         "schemaVersion": 1,
         "label": "citations",
-        "message": f"{author.get('citedby', 0)}",
+        "message": str(author["citedby"]),
     }
-    with open(os.path.join(results_dir, 'gs_data_shieldsio.json'), 'w') as outfile:
+    with open(
+        os.path.join(results_dir, "gs_data_shieldsio.json"),
+        "w",
+        encoding="utf-8",
+    ) as outfile:
         json.dump(shieldio_data, outfile, ensure_ascii=False)
 
-    print("Data written to results/")
 
-if __name__ == '__main__':
-    main()
+def main():
+    author_id = get_author_id()
+    if not author_id:
+        print("Error: Google Scholar ID was not found.", file=sys.stderr)
+        print(
+            "Set GOOGLE_SCHOLAR_ID in repo secrets or add author.googlescholar to _config.yml.",
+            file=sys.stderr,
+        )
+        return 1
+
+    print(f"Fetching Google Scholar profile for: {author_id}")
+    try:
+        author = fetch_author(author_id)
+    except (requests.RequestException, RuntimeError, ValueError) as error:
+        print(f"Error fetching Google Scholar data: {error}", file=sys.stderr)
+        print("The previous citation snapshot will be kept.", file=sys.stderr)
+        return 1
+
+    write_results(author)
+    print(f"Author: {author['name']}")
+    print(f"Total citations: {author['citedby']}")
+    print(f"Publications: {len(author['publications'])}")
+    for publication in author["publications"].values():
+        print(
+            f"  - {publication['bib']['title']} "
+            f"(citations: {publication['num_citations']})"
+        )
+    print("Data written to results/")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
