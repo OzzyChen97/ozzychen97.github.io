@@ -1,0 +1,42 @@
+{
+  "container_type": "Author",
+  "source": "AUTHOR_PROFILE_PAGE",
+  "scholar_id": "x81ITIYAAAAJ",
+  "name": "Zhuo Chen",
+  "affiliation": "University of Nottingham NingBo China ; Shenzhen University of Advanced Technology",
+  "citedby": 8,
+  "citedby5y": 8,
+  "hindex": 2,
+  "hindex5y": 2,
+  "i10index": 0,
+  "i10index5y": 0,
+  "publications": {
+    "x81ITIYAAAAJ:u5HHmVD_uO8C": {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "TC-SSA: Token Compression via Semantic Slot Aggregation for Gigapixel Pathology Reasoning",
+        "author": "Z Chen, S Young, L Xu",
+        "pub_year": "2026",
+        "citation": "arXiv preprint arXiv:2603.01143, 2026"
+      },
+      "filled": false,
+      "author_pub_id": "x81ITIYAAAAJ:u5HHmVD_uO8C",
+      "num_citations": 5
+    },
+    "x81ITIYAAAAJ:u-x6o8ySG0sC": {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Learnable Token Sparsification for Efficient Gigapixel Whole Slide Image Reasoning",
+        "author": "J Chen, L He, Z Chen, S Young, L Xu",
+        "pub_year": "2026",
+        "citation": "arXiv preprint arXiv:2606.08641, 2026"
+      },
+      "filled": false,
+      "author_pub_id": "x81ITIYAAAAJ:u-x6o8ySG0sC",
+      "num_citations": 3
+    }
+  },
+  "updated": "2026-09-24T13:07:43.960401+00:00"
+}
