@@ -2,7 +2,7 @@ name: Get Citation Data
 
 on:
   schedule:
-    - cron: '0 8 * * *'
+    - cron: '17 3,11,19 * * *'
   workflow_dispatch:
   push:
     branches:
@@ -27,6 +27,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check published citation snapshot
+        id: snapshot
+        run: |
+          if git fetch --no-tags --depth=1 origin google-scholar-stats && \
+             git show FETCH_HEAD:gs_data.json > "$RUNNER_TEMP/gs_data.json"; then
+            python google_scholar_crawler/snapshot_status.py "$RUNNER_TEMP/gs_data.json" >> "$GITHUB_OUTPUT"
+          else
+            echo "age_hours=-1" >> "$GITHUB_OUTPUT"
+            echo "due=true" >> "$GITHUB_OUTPUT"
+            echo "stale=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -40,13 +52,25 @@ jobs:
           pip install -r requirements.txt
 
       - name: Fetch citation data
+        id: citations
+        if: steps.snapshot.outputs.due == 'true' || github.event_name != 'schedule'
         run: |
           cd ./google_scholar_crawler
-          timeout 120s python main.py
+          if timeout 120s python main.py; then
+            echo "result=updated" >> "$GITHUB_OUTPUT"
+          else
+            result=$?
+            if [ "$result" -eq 75 ]; then
+              echo "result=temporarily_unavailable" >> "$GITHUB_OUTPUT"
+            else
+              exit "$result"
+            fi
+          fi
         env:
           GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
 
       - name: Push to google-scholar-stats branch
+        if: steps.citations.outputs.result == 'updated'
         run: |
           cd ./google_scholar_crawler/results
           git init
@@ -60,3 +84,12 @@ jobs:
           fi
           git commit -m "Updated Citation Data"
           git push "${remote_repo}" HEAD:google-scholar-stats --force
+
+      - name: Report delayed citation update
+        if: steps.citations.outputs.result == 'temporarily_unavailable'
+        run: |
+          if [ "${{ steps.snapshot.outputs.stale }}" = "true" ]; then
+            echo "::error::Google Scholar is rate limiting requests, and the published citation data is over 48 hours old."
+            exit 1
+          fi
+          echo "::warning::Google Scholar is rate limiting requests. The published citation data is still recent; the next scheduled run will retry."

@@ -16,6 +16,10 @@ PROFILE_URL = "https://scholar.google.com/citations"
 TRANSLATED_PROFILE_URL = "https://scholar-google-com.translate.goog/citations"
 
 
+class ScholarTemporarilyUnavailable(Exception):
+    pass
+
+
 def get_author_id():
     author_id = os.environ.get("GOOGLE_SCHOLAR_ID")
     if author_id:
@@ -164,9 +168,13 @@ def fetch_profile_html(author_id):
         },
         timeout=(5, 30),
     )
+    if proxy_response.status_code in (403, 429):
+        raise ScholarTemporarilyUnavailable(
+            f"Google Scholar rejected the fallback request with HTTP {proxy_response.status_code}."
+        )
     proxy_response.raise_for_status()
     if has_captcha(proxy_response.text):
-        raise RuntimeError(
+        raise ScholarTemporarilyUnavailable(
             "Google Scholar returned a CAPTCHA page through Google Translate."
         )
     return proxy_response.text
@@ -240,7 +248,22 @@ def main():
     print(f"Fetching Google Scholar profile for: {author_id}")
     try:
         author = fetch_author(author_id)
-    except (requests.RequestException, RuntimeError, ValueError) as error:
+    except requests.HTTPError as error:
+        status = error.response.status_code if error.response is not None else None
+        temporary = status in (403, 429) or (status is not None and status >= 500)
+        print(f"Error fetching Google Scholar data: {error}", file=sys.stderr)
+        print("The previous citation snapshot will be kept.", file=sys.stderr)
+        return 75 if temporary else 1
+    except (
+        requests.ConnectionError,
+        requests.Timeout,
+        requests.exceptions.RetryError,
+        ScholarTemporarilyUnavailable,
+    ) as error:
+        print(f"Google Scholar is temporarily unavailable: {error}", file=sys.stderr)
+        print("The previous citation snapshot will be kept.", file=sys.stderr)
+        return 75
+    except (requests.RequestException, ValueError) as error:
         print(f"Error fetching Google Scholar data: {error}", file=sys.stderr)
         print("The previous citation snapshot will be kept.", file=sys.stderr)
         return 1
