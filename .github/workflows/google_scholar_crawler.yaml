@@ -68,6 +68,7 @@ jobs:
           fi
         env:
           GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
+          GOOGLE_SCHOLAR_TRANSLATE_ONLY: 'true'
 
       - name: Push to google-scholar-stats branch
         if: steps.citations.outputs.result == 'updated'

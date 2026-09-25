@@ -142,21 +142,24 @@ def fetch_profile_html(author_id):
         "view_op": "list_works",
         "pagesize": 100,
     }
-    response = session.get(
-        PROFILE_URL,
-        params=params,
-        timeout=(5, 20),
-    )
-    if response.ok and not has_captcha(response.text):
-        return response.text
+    if os.environ.get("GOOGLE_SCHOLAR_TRANSLATE_ONLY") != "true":
+        response = session.get(
+            PROFILE_URL,
+            params=params,
+            timeout=(5, 20),
+        )
+        if response.ok and not has_captcha(response.text):
+            return response.text
 
-    if response.status_code not in (403, 429) and not has_captcha(response.text):
-        response.raise_for_status()
+        if response.status_code not in (403, 429) and not has_captcha(response.text):
+            response.raise_for_status()
 
-    print(
-        "Direct Google Scholar access was blocked; retrying through Google Translate.",
-        file=sys.stderr,
-    )
+        print(
+            "Direct Google Scholar access was blocked; retrying through Google Translate.",
+            file=sys.stderr,
+        )
+    else:
+        print("Fetching Google Scholar through Google Translate.")
     proxy_response = session.get(
         TRANSLATED_PROFILE_URL,
         params={
