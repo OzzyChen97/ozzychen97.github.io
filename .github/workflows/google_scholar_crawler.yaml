@@ -20,55 +20,60 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04-arm
-    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v5
 
       - name: Check published citation snapshot
         id: snapshot
         run: |
+          set -o pipefail
           if git fetch --no-tags --depth=1 origin google-scholar-stats && \
              git show FETCH_HEAD:gs_data.json > "$RUNNER_TEMP/gs_data.json"; then
-            python google_scholar_crawler/snapshot_status.py "$RUNNER_TEMP/gs_data.json" >> "$GITHUB_OUTPUT"
+            python3 google_scholar_crawler/snapshot_status.py "$RUNNER_TEMP/gs_data.json" | tee -a "$GITHUB_OUTPUT"
           else
-            echo "age_hours=-1" >> "$GITHUB_OUTPUT"
-            echo "due=true" >> "$GITHUB_OUTPUT"
-            echo "stale=true" >> "$GITHUB_OUTPUT"
+            printf 'age_hours=-1\ndue=true\nstale=true\nexpired=true\n' | tee -a "$GITHUB_OUTPUT"
           fi
 
       - name: Set up Python
         if: steps.snapshot.outputs.due == 'true' || github.event_name != 'schedule'
         uses: actions/setup-python@v6
         with:
-          python-version: '3.10'
+          python-version: '3.12'
           cache: pip
           cache-dependency-path: google_scholar_crawler/requirements.txt
 
       - name: Install dependencies
         if: steps.snapshot.outputs.due == 'true' || github.event_name != 'schedule'
-        run: |
-          cd ./google_scholar_crawler
-          pip install -r requirements.txt
+        run: pip install -r google_scholar_crawler/requirements.txt
 
       - name: Fetch citation data
         id: citations
         if: steps.snapshot.outputs.due == 'true' || github.event_name != 'schedule'
-        run: |
-          cd ./google_scholar_crawler
-          if timeout 120s python main.py; then
-            echo "result=updated" >> "$GITHUB_OUTPUT"
-          else
-            result=$?
-            if [ "$result" -eq 75 ]; then
-              echo "result=temporarily_unavailable" >> "$GITHUB_OUTPUT"
-            else
-              exit "$result"
-            fi
-          fi
         env:
           GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
-          GOOGLE_SCHOLAR_TRANSLATE_ONLY: 'true'
+          # Google blocks GitHub-hosted runners, so fall back to the Wayback
+          # Machine, which crawls the profile from archive.org's own network.
+          GOOGLE_SCHOLAR_ROUTES: direct,translate,wayback
+          PYTHONUNBUFFERED: '1'
+        run: |
+          cd ./google_scholar_crawler
+          set +e
+          timeout 8m python main.py
+          status=$?
+          set -e
+          case "$status" in
+            0)
+              echo "result=updated" >> "$GITHUB_OUTPUT"
+              ;;
+            75|124)
+              echo "result=temporarily_unavailable" >> "$GITHUB_OUTPUT"
+              ;;
+            *)
+              exit "$status"
+              ;;
+          esac
 
       - name: Push to google-scholar-stats branch
         if: steps.citations.outputs.result == 'updated'
@@ -88,9 +93,17 @@ jobs:
 
       - name: Report delayed citation update
         if: steps.citations.outputs.result == 'temporarily_unavailable'
+        env:
+          AGE_HOURS: ${{ steps.snapshot.outputs.age_hours }}
+          STALE: ${{ steps.snapshot.outputs.stale }}
+          EXPIRED: ${{ steps.snapshot.outputs.expired }}
         run: |
-          if [ "${{ steps.snapshot.outputs.stale }}" = "true" ]; then
-            echo "::error::Google Scholar is rate limiting requests, and the published citation data is over 48 hours old."
+          if [ "$EXPIRED" = "true" ]; then
+            echo "::error::Google Scholar could not be reached through any route, and the published citation data is more than 7 days old (${AGE_HOURS}h)."
             exit 1
           fi
-          echo "::notice::Google Scholar is rate limiting requests. The published citation data is still recent; the next scheduled run will retry."
+          if [ "$STALE" = "true" ]; then
+            echo "::warning::Google Scholar could not be reached through any route; the published citation data is ${AGE_HOURS}h old. The next scheduled run will retry."
+          else
+            echo "::notice::Google Scholar could not be reached through any route; the published citation data is still recent (${AGE_HOURS}h old). The next scheduled run will retry."
+          fi
