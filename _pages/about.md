@@ -48,7 +48,7 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge badge-arxiv">arXiv</div><img src='images/sparselearn.png' alt="SparseLearn" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[Learnable Token Sparsification for Efficient Gigapixel Whole Slide Image Reasoning](https://arxiv.org/abs/2606.08641)
+[Learnable Token Sparsification for Efficient Gigapixel Whole Slide Image Reasoning](https://openreview.net/pdf?id=HS1DodAT88)
 
 Jingzhi Chen, Landi He, **Zhuo Chen**, Shawn Young, Lijian Xu
 
