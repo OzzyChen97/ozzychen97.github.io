@@ -50,8 +50,6 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
 
 [SparseLearn: Learnable Token Pruning with Continuous Noise Gating for Gigapixel Whole-Slide Images](https://openreview.net/pdf?id=HS1DodAT88)
 
-Jingzhi Chen, Landi He, **Zhuo Chen**, Shawn Young, Lijian Xu
-
 <span class="paper_citation" data-arxiv="2606.08641"></span>
 
 - Learnable token pruning for gigapixel WSI reasoning: a lightweight scorer is optimized end-to-end from downstream supervision instead of relying on training-free spatial sampling.
