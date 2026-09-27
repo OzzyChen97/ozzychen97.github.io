@@ -12,14 +12,14 @@ redirect_from:
 
 I am an undergraduate student in **Mathematics & Applied Mathematics** at the [University of Nottingham Ningbo China](https://www.nottingham.edu.cn/). My work sits at the intersection of mathematical foundations and practical machine learning systems.
 
-My primary research affiliation is with the Di² Lab at [HKUST(GZ)](https://www.hkust-gz.edu.cn/), where I work on **text-to-motion generation** and **embodied AI** under the supervision of **Associate Professor Yutao YUE**. I also work remotely with [Assistant Professor Xiao Luo](https://luoxiao12.github.io/) at the [University of Wisconsin–Madison](https://www.wisc.edu/) on efficient Vision-Language-Action models, including **QuantVLA-related research**. Previously, at the Shenzhen University of Advanced Technology, I worked on token-efficient gigapixel pathology reasoning and developed **TC-SSA**.
+My primary research affiliation is with the Di² Lab at [HKUST(GZ)](https://www.hkust-gz.edu.cn/), where I work on **text-to-motion generation** and **embodied AI** under the supervision of **Associate Professor Yutao YUE**. I also work remotely on **QuantVLA**, quantization for efficient Vision-Language-Action models, jointly supervised by [Assistant Professor Xiao Luo](https://luoxiao12.github.io/) at the [University of Wisconsin–Madison](https://www.wisc.edu/) and [Assistant Professor Yiyang Gu](https://www.bza.edu.cn/teacher/j9n3khin72s1jan0vp9gbehuyivdvcxr) at the [Beijing Zhongguancun Academy](https://www.bza.edu.cn/). Previously, at the Shenzhen University of Advanced Technology, I worked on token-efficient gigapixel pathology reasoning and developed **TC-SSA**.
 
 You can find my publications on <a href='https://scholar.google.com/citations?user=x81ITIYAAAAJ'>Google Scholar</a>. Total citations: <span id="total_cit">-</span>.
 
 
 # 🔥 News
 - *2026.08*: &nbsp;📦 Released the [TC-SSA dataset](https://huggingface.co/datasets/OzzyChen97/TC-SSA) on Hugging Face.
-- *2026.08*: &nbsp;🌐 Joined [Assistant Professor Xiao Luo](https://luoxiao12.github.io/) at the [University of Wisconsin–Madison](https://www.wisc.edu/) as a Remote Research Assistant.
+- *2026.08*: &nbsp;🌐 Started working on QuantVLA as a Remote Research Assistant, jointly supervised by [Assistant Professor Xiao Luo](https://luoxiao12.github.io/) ([University of Wisconsin–Madison](https://www.wisc.edu/)) and [Assistant Professor Yiyang Gu](https://www.bza.edu.cn/teacher/j9n3khin72s1jan0vp9gbehuyivdvcxr) ([Beijing Zhongguancun Academy](https://www.bza.edu.cn/)).
 - *2026.06*: &nbsp;🚀 Joined Di² Lab at [HKUST(GZ)](https://www.hkust-gz.edu.cn/) as a Research Assistant, supervised by **Associate Professor Yutao YUE**.
 - *2026.06*: &nbsp;🎉🎉 Our paper **TC-SSA: Token Compression via Semantic Slot Aggregation** was accepted to **MICCAI 2026**!
 - *2026.06*: &nbsp;📄 **Learnable Token Sparsification for Efficient Gigapixel Whole Slide Image Reasoning** is now available on [arXiv](https://arxiv.org/abs/2606.08641).
@@ -45,7 +45,7 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge badge-arxiv">arXiv</div><img src='images/sparselearn.png' alt="SparseLearn" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">WACV</div><img src='images/sparselearn.png' alt="SparseLearn" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Learnable Token Sparsification for Efficient Gigapixel Whole Slide Image Reasoning](https://openreview.net/pdf?id=HS1DodAT88)
@@ -129,10 +129,10 @@ Jingzhi Chen, Landi He, **Zhuo Chen**, Shawn Young, Lijian Xu
     <div class="timeline-dot"></div>
     <div class="timeline-content">
       <h3>Remote Research Assistant</h3>
-      <p class="timeline-institution"><a href="https://www.wisc.edu/">University of Wisconsin–Madison</a> — Department of Statistics</p>
-      <p class="timeline-supervisor">Under the supervision of <strong><a href="https://luoxiao12.github.io/">Assistant Professor Xiao Luo</a></strong></p>
+      <p class="timeline-institution"><a href="https://www.wisc.edu/">University of Wisconsin–Madison</a> — Department of Statistics &amp; <a href="https://www.bza.edu.cn/">Beijing Zhongguancun Academy</a></p>
+      <p class="timeline-supervisor">Jointly supervised by <strong><a href="https://luoxiao12.github.io/">Assistant Professor Xiao Luo</a></strong> (UW–Madison) and <strong><a href="https://www.bza.edu.cn/teacher/j9n3khin72s1jan0vp9gbehuyivdvcxr">Assistant Professor Yiyang Gu</a></strong> (Beijing Zhongguancun Academy)</p>
       <ul>
-        <li>Working on QuantVLA-related research for efficient Vision-Language-Action models.</li>
+        <li>Working on QuantVLA: quantization of Vision-Language-Action models for efficient robot policies.</li>
         <li>Investigating post-training quantization and memory-efficient deployment for embodied AI systems.</li>
       </ul>
     </div>
