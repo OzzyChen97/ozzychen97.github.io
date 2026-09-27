@@ -28,6 +28,32 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
 
 # 📝 Publications 
 
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Coming soon</div><img src='images/trifiq.png' alt="TriFiQ" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+**TriFiQ: Tri-Fidelity Quantization for Vision-Language-Action Models**
+
+*University of Wisconsin–Madison & Beijing Zhongguancun Academy*
+
+- Local fidelity: scores each VLM layer by the distributional damage to its outputs and the relational damage to downstream action features, then allocates FP16 protection under a byte budget.
+- Global fidelity: evaluates candidate precision masks by multi-level policy matching against the FP16 policy on shared reference states with identical noise, using step, immediate, and accumulated deviations of the predicted action chunks.
+- Adaptive fidelity: keeps the selected weight mask fixed and quantizes activations to A8 with per-channel ranges computed online for each input, enabling closed-loop deployment of the quantized VLA.
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Coming soon</div><img src='images/compass.png' alt="Compass" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+**Compass: Attribution-Induced Semantic Representations for Text-to-Motion Generation**
+
+*HKUST(GZ) — Di² Lab*
+
+- Attributes an autoregressive text-to-motion generator's early-step log-likelihood back to text tokens with Grad×Input, yielding motion-conditioned token weights.
+- Pools token projections with these attribution weights into a semantic representation and trains it with preserve pairs (alignment plus variance and covariance regularization) and alter pairs (edited-slot difference and locality losses on the edit mask).
+- Keeps the backbone generator faithful through a KL consistency loss against a frozen teacher while the attribution-induced representation is learned.
+</div>
+</div>
+
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">MICCAI 2026</div><img src='images/tc_ssa.png' alt="TC-SSA" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
