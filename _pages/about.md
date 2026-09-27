@@ -54,9 +54,9 @@ Jingzhi Chen, Landi He, **Zhuo Chen**, Shawn Young, Lijian Xu
 
 <span class="paper_citation" data-arxiv="2606.08641"></span>
 
-- Reformulates token reduction for gigapixel whole-slide images as a trainable sparsification problem instead of fixed downsampling or heuristic pruning.
-- Trains a decoupled router with **SparseLearn**: a variance-preserving continuous noise gate, a differentiable Soft Top-K operator, and a diagonal-attention denoiser that keeps gradients flowing through pruning.
-- At inference the gate is discarded and a deterministic Hard Top-K keeps only **32 tokens (0.78%)**, reaching **73.32% overall accuracy** on SlideBench (TCGA) with strong zero-shot transfer to SlideBench (BCNB) and WSI-VQA*.
+- Learnable token pruning for gigapixel WSI reasoning: a lightweight scorer is optimized end-to-end from downstream supervision instead of relying on training-free spatial sampling.
+- During training, a differentiable Soft Top-K turns scores into continuous token weights that gate variance-preserving noise injection, and a diagonal-attention denoiser recovers the features without cross-token leakage.
+- At inference the gating and denoiser are removed and a deterministic Hard Top-K keeps just **32 visual tokens**, a **128× reduction** from the 4,096-token context, reaching **73.32%** overall accuracy on SlideBench (TCGA) versus 74.81% for the unpruned SlideChat baseline, with competitive zero-shot results on SlideBench (BCNB) and WSI-VQA.
 - Preprint: [arXiv:2606.08641](https://arxiv.org/abs/2606.08641).
 </div>
 </div>
