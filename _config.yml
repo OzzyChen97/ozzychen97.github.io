@@ -7,7 +7,9 @@
 
 # Site Settings
 title                    : "Ozzy Chen"
-description              : "Undergraduate student at University of Nottingham and Research Assistant at HKUST(GZ) Di² Lab, researching text-to-motion, embodied AI, and efficient Vision-Language-Action models."
+description              : "Undergraduate student at University of Nottingham and Research Assistant at HKUST(GZ) Di² Lab, researching text-to-motion, embodied AI, and efficient Vision-Language-AI."
+url                      : "https://orangeblog.top"
+baseurl                  : "/homepage"
 repository               : "OzzyChen97/ozzychen97.github.io"
 google_scholar_stats_use_cdn : false
 
@@ -32,7 +34,7 @@ author:
   researchgate     :
   uri              :
   bitbucket        :
-  codepen          :
+  codepen           :
   dribbble         :
   flickr           :
   facebook         :
@@ -96,7 +98,7 @@ keep_files:
   - .git
   - .svn
 encoding: "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+markdown_ext: "markdown,mkdown,mkd,mkd,md"
 
 
 # Conversion
@@ -157,7 +159,7 @@ whitelist:
 
 
 # HTML Compression
-# - http://jch.penibelst.de/
+# - http://jch.penibelst.com/
 compress_html:
   clippings: all
   ignore:
