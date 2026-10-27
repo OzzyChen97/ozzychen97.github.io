@@ -6,9 +6,11 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
+# Custom domain: homepage.orangeblog.top (declared in CNAME). The apex
+# orangeblog.top is no longer served by this repository.
 title                    : "Ozzy Chen"
 description              : "Undergraduate student at University of Nottingham and Research Assistant at HKUST(GZ) Di² Lab, researching text-to-motion, embodied AI, and efficient Vision-Language-AI."
-url                      : "https://orangeblog.top"
+url                      : "https://homepage.orangeblog.top"
 baseurl                  : ""
 repository               : "OzzyChen97/ozzychen97.github.io"
 google_scholar_stats_use_cdn : false

@@ -1,9 +1,11 @@
 ---
-permalink: /homepage/
+permalink: /
 title: ""
 excerpt: ""
 author_profile: true
 redirect_from: 
+  - /homepage/
+  - /homepage
   - /about/
   - /about.html
 ---
@@ -28,7 +30,7 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Coming soon</div><img src='images/trifiq.png' alt="TriFiQ" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Coming soon</div><img src="{{ '/images/trifiq.png' | relative_url }}" alt="TriFiQ" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 **TriFiQ: Tri-Fidelity Quantization for Vision-Language-Action Models**
@@ -41,7 +43,7 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Coming soon</div><img src='images/compass.png' alt="Compass" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Coming soon</div><img src="{{ '/images/compass.png' | relative_url }}" alt="Compass" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 **Compass: Attribution-Induced Semantic Representations for Text-to-Motion Generation**
@@ -54,7 +56,7 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">MICCAI 2026</div><img src='images/tc_ssa.png' alt="TC-SSA" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">MICCAI 2026</div><img src="{{ '/images/tc_ssa.png' | relative_url }}" alt="TC-SSA" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [TC-SSA: Token Compression via Semantic Slot Aggregation for Gigapixel Pathology Reasoning](https://arxiv.org/abs/2603.01143)
@@ -71,7 +73,7 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">WACV (under review)</div><img src='images/sparselearn.png' alt="SparseLearn" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">WACV (under review)</div><img src="{{ '/images/sparselearn.png' | relative_url }}" alt="SparseLearn" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [SparseLearn: Learnable Token Pruning with Continuous Noise Gating for Gigapixel Whole-Slide Images](https://openreview.net/pdf?id=HS1DodAT88)
@@ -93,7 +95,7 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
     <div class="timeline-info">
       <div class="timeline-date">2024.09 - 2028.06</div>
       <div class="timeline-logo">
-        <img src="images/UoN-Logo.jpg" alt="UoN">
+        <img src="{{ '/images/UoN-Logo.jpg' | relative_url }}" alt="UoN">
       </div>
     </div>
     <div class="timeline-dot"></div>
@@ -110,7 +112,7 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
     <div class="timeline-info">
       <div class="timeline-date">2025.07 - 2026.08</div>
       <div class="timeline-logo">
-        <img src="images/SUAT-Logo.png" alt="SUAT">
+        <img src="{{ '/images/SUAT-Logo.png' | relative_url }}" alt="SUAT">
       </div>
     </div>
     <div class="timeline-dot"></div>
@@ -129,7 +131,7 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
     <div class="timeline-info">
       <div class="timeline-date">2026.06 - Present</div>
       <div class="timeline-logo hkustgz-logo">
-        <img src="images/HKUSTGZ-Logo.png?v=20260617" alt="HKUST(GZ)">
+        <img src="{{ '/images/HKUSTGZ-Logo.png?v=20260617' | relative_url }}" alt="HKUST(GZ)">
       </div>
     </div>
     <div class="timeline-dot"></div>
@@ -148,7 +150,7 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
     <div class="timeline-info">
       <div class="timeline-date">2026.08 - Present</div>
       <div class="timeline-logo uwmadison-logo">
-        <img src="images/UWMadison-Logo.png" alt="University of Wisconsin–Madison">
+        <img src="{{ '/images/UWMadison-Logo.png' | relative_url }}" alt="University of Wisconsin–Madison">
       </div>
     </div>
     <div class="timeline-dot"></div>
