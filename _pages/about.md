@@ -30,11 +30,10 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
 
 # 📝 Publications 
 
-## Under review at CVPR 2027
+## Research Projects
 
-<div class="paper-box paper-box--under-review">
+<div class="paper-box paper-box--project">
   <div class="paper-box-image"><div>
-    <span class="badge">CVPR 2027 · Under review</span>
     <a href="{{ '/images/vla-compression-pipeline.jpg' | relative_url }}" aria-label="View the full-size whole-checkpoint compression diagram">
       <img src="{{ '/images/vla-compression-pipeline-card.jpg' | relative_url }}" width="800" height="281" loading="lazy" alt="Whole-checkpoint pipeline: prune unused weights, quantize all live linear weights, package and reload the policy, then audit its size, behavior, and runtime.">
     </a>
@@ -48,9 +47,8 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
   </div>
 </div>
 
-<div class="paper-box paper-box--under-review">
+<div class="paper-box paper-box--project">
   <div class="paper-box-image"><div>
-    <span class="badge">CVPR 2027 · Under review</span>
     <a href="{{ '/images/stride-training-deployment.jpg' | relative_url }}" aria-label="View the full-size STRIDE architecture">
       <img src="{{ '/images/stride-training-deployment-card.jpg' | relative_url }}" width="800" height="400" loading="lazy" alt="STRIDE uses different trajectory targets for paraphrases and semantic edits during training, then generates motion from one instruction with the original sampler.">
     </a>
@@ -64,9 +62,8 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
   </div>
 </div>
 
-<div class="paper-box paper-box--under-review">
+<div class="paper-box paper-box--project">
   <div class="paper-box-image"><div>
-    <span class="badge">CVPR 2027 · Under review</span>
     <a href="{{ '/images/pathsleuth-architecture.jpg' | relative_url }}" aria-label="View the full-size PathSleuth architecture">
       <img src="{{ '/images/pathsleuth-architecture-card.jpg' | relative_url }}" width="800" height="534" loading="lazy" alt="PathSleuth routes tissue patches into eight visual tokens for a language model, trains on controlled slide changes, and probes or swaps tokens to trace the answer.">
     </a>
