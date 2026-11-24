@@ -35,7 +35,9 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
 <div class="paper-box paper-box--under-review">
   <div class="paper-box-image"><div>
     <span class="badge">CVPR 2027 · Under review</span>
-    <img src="{{ '/images/vla-paired-outcomes.png' | relative_url }}" width="731" height="418" loading="lazy" alt="GR00T on LIBERO-Long: 64 successes became failures and 62 failures became successes after compression.">
+    <a href="{{ '/images/vla-compression-pipeline.jpg' | relative_url }}" aria-label="View the full-size whole-checkpoint compression diagram">
+      <img src="{{ '/images/vla-compression-pipeline.jpg' | relative_url }}" width="1494" height="527" loading="lazy" alt="Whole-checkpoint pipeline: prune unused weights, quantize all live linear weights, package and reload the policy, then audit its size, behavior, and runtime.">
+    </a>
   </div></div>
   <div class="paper-box-text">
     <h3>Beyond Aggregate Success: Whole-Checkpoint Compression and Behavioral Auditing of Vision-Language-Action Policies</h3>
@@ -49,7 +51,9 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
 <div class="paper-box paper-box--under-review">
   <div class="paper-box-image"><div>
     <span class="badge">CVPR 2027 · Under review</span>
-    <img src="{{ '/images/stride-humanoid-tracking.png' | relative_url }}" width="1010" height="447" loading="lazy" alt="Simulated G1 pose sequences: after the kick-and-jump instruction is rephrased, ECHO falls while STRIDE stays upright.">
+    <a href="{{ '/images/stride-training-deployment.jpg' | relative_url }}" aria-label="View the full-size STRIDE architecture">
+      <img src="{{ '/images/stride-training-deployment.jpg' | relative_url }}" width="1494" height="757" loading="lazy" alt="STRIDE uses different trajectory targets for paraphrases and semantic edits during training, then generates motion from one instruction with the original sampler.">
+    </a>
   </div></div>
   <div class="paper-box-text">
     <h3>Say It Differently, Move the Same: Trustworthy Motion Generation for Language-Driven Humanoids</h3>
@@ -63,13 +67,15 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
 <div class="paper-box paper-box--under-review">
   <div class="paper-box-image"><div>
     <span class="badge">CVPR 2027 · Under review</span>
-    <img src="{{ '/images/pathsleuth-slot-evidence.png' | relative_url }}" width="734" height="689" loading="lazy" alt="SlideBench accuracy with and without the slide, followed by a comparison of how swapping one visual slot changes a ductal-subtype prediction.">
+    <a href="{{ '/images/pathsleuth-architecture.jpg' | relative_url }}" aria-label="View the full-size PathSleuth architecture">
+      <img src="{{ '/images/pathsleuth-architecture.jpg' | relative_url }}" width="1460" height="979" loading="lazy" alt="PathSleuth routes tissue patches into eight visual tokens for a language model, trains on controlled slide changes, and probes or swaps tokens to trace the answer.">
+    </a>
   </div></div>
   <div class="paper-box-text">
     <h3>Guessing or Looking? Visual Evidence Tracing and Anchoring for Whole-Slide Pathology VLMs</h3>
     <ul>
       <li>PathSleuth traces tissue patches through eight compressed visual slots. Swapping one slot with its counterpart from another patient tests whether the model uses that evidence in its answer.</li>
-      <li>In the illustrated case, swapping one slot from a lobular slide lowered the predicted probability of a ductal answer from <strong>83.9% to 3.6%</strong>; the same swap barely changed the TC-SSA baseline.</li>
+      <li>Restoring the three highest-ranked slots after swapping all eight recovered <strong>81% of the mean loss</strong> in log probability for the correct answer.</li>
     </ul>
   </div>
 </div>
