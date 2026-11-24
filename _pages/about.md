@@ -36,7 +36,7 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
   <div class="paper-box-image"><div>
     <span class="badge">CVPR 2027 · Under review</span>
     <a href="{{ '/images/vla-compression-pipeline.jpg' | relative_url }}" aria-label="View the full-size whole-checkpoint compression diagram">
-      <img src="{{ '/images/vla-compression-pipeline.jpg' | relative_url }}" width="1494" height="527" loading="lazy" alt="Whole-checkpoint pipeline: prune unused weights, quantize all live linear weights, package and reload the policy, then audit its size, behavior, and runtime.">
+      <img src="{{ '/images/vla-compression-pipeline-card.jpg' | relative_url }}" width="800" height="281" loading="lazy" alt="Whole-checkpoint pipeline: prune unused weights, quantize all live linear weights, package and reload the policy, then audit its size, behavior, and runtime.">
     </a>
   </div></div>
   <div class="paper-box-text">
@@ -52,7 +52,7 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
   <div class="paper-box-image"><div>
     <span class="badge">CVPR 2027 · Under review</span>
     <a href="{{ '/images/stride-training-deployment.jpg' | relative_url }}" aria-label="View the full-size STRIDE architecture">
-      <img src="{{ '/images/stride-training-deployment.jpg' | relative_url }}" width="1494" height="757" loading="lazy" alt="STRIDE uses different trajectory targets for paraphrases and semantic edits during training, then generates motion from one instruction with the original sampler.">
+      <img src="{{ '/images/stride-training-deployment-card.jpg' | relative_url }}" width="800" height="400" loading="lazy" alt="STRIDE uses different trajectory targets for paraphrases and semantic edits during training, then generates motion from one instruction with the original sampler.">
     </a>
   </div></div>
   <div class="paper-box-text">
@@ -68,7 +68,7 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
   <div class="paper-box-image"><div>
     <span class="badge">CVPR 2027 · Under review</span>
     <a href="{{ '/images/pathsleuth-architecture.jpg' | relative_url }}" aria-label="View the full-size PathSleuth architecture">
-      <img src="{{ '/images/pathsleuth-architecture.jpg' | relative_url }}" width="1460" height="979" loading="lazy" alt="PathSleuth routes tissue patches into eight visual tokens for a language model, trains on controlled slide changes, and probes or swaps tokens to trace the answer.">
+      <img src="{{ '/images/pathsleuth-architecture-card.jpg' | relative_url }}" width="800" height="534" loading="lazy" alt="PathSleuth routes tissue patches into eight visual tokens for a language model, trains on controlled slide changes, and probes or swaps tokens to trace the answer.">
     </a>
   </div></div>
   <div class="paper-box-text">
