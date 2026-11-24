@@ -126,3 +126,23 @@ h1:before, .anchor:before {
 .badge-arxiv {
     background-color: #b31b1b;
 }
+
+.paper-box--under-review {
+    .paper-box-image > div {
+        width: 100%;
+        max-width: 400px;
+    }
+    .paper-box-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    .badge {
+        position: static;
+        display: table;
+        margin: 0 0 .45rem -.35rem;
+    }
+    .paper-box-text h3 {
+        margin-top: 0;
+    }
+}

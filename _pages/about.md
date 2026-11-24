@@ -32,9 +32,47 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
 
 ## Under review at CVPR 2027
 
-- Beyond Aggregate Success: Whole-Checkpoint Compression and Behavioral Auditing of Vision-Language-Action Policies
-- Say It Differently, Move the Same: Trustworthy Motion Generation for Language-Driven Humanoids
-- Guessing or Looking? Visual Evidence Tracing and Anchoring for Whole-Slide Pathology VLMs
+<div class="paper-box paper-box--under-review">
+  <div class="paper-box-image"><div>
+    <span class="badge">CVPR 2027 · Under review</span>
+    <img src="{{ '/images/vla-paired-outcomes.png' | relative_url }}" width="731" height="418" loading="lazy" alt="GR00T on LIBERO-Long: 64 successes became failures and 62 failures became successes after compression.">
+  </div></div>
+  <div class="paper-box-text">
+    <h3>Beyond Aggregate Success: Whole-Checkpoint Compression and Behavioral Auditing of Vision-Language-Action Policies</h3>
+    <ul>
+      <li>Quantizing linear weights across vision, language, and action modules shrinks the full GR00T and π0.5 checkpoints by factors of <strong>5.54 and 4.71</strong>, respectively.</li>
+      <li>On LIBERO-Long, native and compressed GR00T solved nearly the same number of trials (86.9% vs. 86.7%). Starting both from identical states revealed that <strong>126 of 1,000 trials</strong> changed outcome.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="paper-box paper-box--under-review">
+  <div class="paper-box-image"><div>
+    <span class="badge">CVPR 2027 · Under review</span>
+    <img src="{{ '/images/stride-humanoid-tracking.png' | relative_url }}" width="1010" height="447" loading="lazy" alt="Simulated G1 pose sequences: after the kick-and-jump instruction is rephrased, ECHO falls while STRIDE stays upright.">
+  </div></div>
+  <div class="paper-box-text">
+    <h3>Say It Differently, Move the Same: Trustworthy Motion Generation for Language-Driven Humanoids</h3>
+    <ul>
+      <li>STRIDE trains a motion generator to preserve the movement when a command is rephrased, but change it when an instruction changes meaning, such as switching from left to right.</li>
+      <li>On ECHO Lite, motion similarity across paraphrases rose from <strong>0.571 to 0.835</strong>. On a physical Unitree G1, the robot crossed its forearms and walked forward under reworded commands.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="paper-box paper-box--under-review">
+  <div class="paper-box-image"><div>
+    <span class="badge">CVPR 2027 · Under review</span>
+    <img src="{{ '/images/pathsleuth-slot-evidence.png' | relative_url }}" width="734" height="689" loading="lazy" alt="SlideBench accuracy with and without the slide, followed by a comparison of how swapping one visual slot changes a ductal-subtype prediction.">
+  </div></div>
+  <div class="paper-box-text">
+    <h3>Guessing or Looking? Visual Evidence Tracing and Anchoring for Whole-Slide Pathology VLMs</h3>
+    <ul>
+      <li>PathSleuth traces tissue patches through eight compressed visual slots. Swapping one slot with its counterpart from another patient tests whether the model uses that evidence in its answer.</li>
+      <li>In the illustrated case, swapping one slot from a lobular slide lowered the predicted probability of a ductal answer from <strong>83.9% to 3.6%</strong>; the same swap barely changed the TC-SSA baseline.</li>
+    </ul>
+  </div>
+</div>
 
 ## Other papers
 
