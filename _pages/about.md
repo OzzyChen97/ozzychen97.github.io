@@ -24,7 +24,7 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
 - *2026.08*: &nbsp;🌐 Started working on QuantVLA as a Remote Research Assistant, jointly supervised by [Assistant Professor Xiao Luo](https://luoxiao12.github.io/) ([University of Wisconsin–Madison](https://www.wisc.edu/)) and [Assistant Professor Yiyang Gu](https://www.bza.edu.cn/teacher/j9n3khin72s1jan0vp9gbehuyivdvcxr) ([Beijing Zhongguancun Academy](https://www.bza.edu.cn/)).
 - *2026.06*: &nbsp;🚀 Joined Di² Lab at [HKUST(GZ)](https://www.hkust-gz.edu.cn/) as a Research Assistant, supervised by **Associate Professor Yutao YUE**.
 - *2026.06*: &nbsp;🎉🎉 Our paper **TC-SSA: Token Compression via Semantic Slot Aggregation** was accepted to **MICCAI 2026**!
-- *2026.06*: &nbsp;📄 **SparseLearn: Learnable Token Pruning with Continuous Noise Gating for Gigapixel Whole-Slide Images** is now available on [arXiv](https://arxiv.org/abs/2606.08641) and is under review at WACV.
+- *2026.06*: &nbsp;📄 **SparseLearn: Learnable Token Pruning with Continuous Noise Gating for Gigapixel Whole-Slide Images** is now available on [arXiv](https://arxiv.org/abs/2606.08641).
 - *2026.03*: &nbsp;📄 **TC-SSA: Token Compression via Semantic Slot Aggregation** was released on arXiv.
 - *2025.07*: &nbsp;🔬 Joined the Computer Vision and Recognition Center (AI觉-知研究中心) at Shenzhen University of Advanced Technology as a Research Assistant.
 
@@ -99,10 +99,10 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">WACV (under review)</div><img src="{{ '/images/sparselearn.png' | relative_url }}" alt="SparseLearn" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge badge-arxiv">arXiv</div><img src="{{ '/images/sparselearn.png' | relative_url }}" alt="SparseLearn" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[SparseLearn: Learnable Token Pruning with Continuous Noise Gating for Gigapixel Whole-Slide Images](https://openreview.net/pdf?id=HS1DodAT88)
+[SparseLearn: Learnable Token Pruning with Continuous Noise Gating for Gigapixel Whole-Slide Images](https://arxiv.org/abs/2606.08641)
 
 <span class="paper_citation" data-arxiv="2606.08641"></span>
 
