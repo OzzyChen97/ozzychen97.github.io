@@ -40,6 +40,19 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
   </div></div>
   <div class="paper-box-text">
     <h3>Beyond Aggregate Success: Whole-Checkpoint Compression and Behavioral Auditing of Vision-Language-Action Policies</h3>
+    <p class="project-authors"><strong>Zhuo Chen</strong><sup>1,2</sup>, Yiyang Gu<sup>1</sup>, Qiyun Huang<sup>3</sup>, Tianhao Zang<sup>4</sup>, Yuchen Xu<sup>5</sup>, Yifan Wang<sup>6</sup>, Xiao Luo<sup>7</sup></p>
+    <details class="project-affiliations">
+      <summary>Author affiliations</summary>
+      <ol>
+        <li>Beijing Zhongguancun Academy (bza.edu.cn)</li>
+        <li>The University of Nottingham Ningbo China (nottingham.edu.cn)</li>
+        <li>Peking University (pku.edu.cn)</li>
+        <li>University of Maryland, College Park (umd.edu)</li>
+        <li>University of Nottingham (nottingham.ac.uk)</li>
+        <li>University of International Business and Economics (uibe.edu.cn)</li>
+        <li>University of Wisconsin–Madison (wisc.edu)</li>
+      </ol>
+    </details>
     <ul>
       <li>Quantizing linear weights across vision, language, and action modules shrinks the full GR00T and π0.5 checkpoints by factors of <strong>5.54 and 4.71</strong>, respectively.</li>
       <li>On LIBERO-Long, native and compressed GR00T solved nearly the same number of trials (86.9% vs. 86.7%). Starting both from identical states revealed that <strong>126 of 1,000 trials</strong> changed outcome.</li>
@@ -55,6 +68,18 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
   </div></div>
   <div class="paper-box-text">
     <h3>Say It Differently, Move the Same: Trustworthy Motion Generation for Language-Driven Humanoids</h3>
+    <p class="project-authors">Wenshuo Chen<sup>1</sup>, <strong>Zhuo Chen</strong><sup>1</sup>, honglin chu<sup>2</sup>, Shaofeng Liang<sup>1</sup>, Lei Wang<sup>3</sup>, Shang Gao<sup>4</sup>, Jianfei Song<sup>2</sup>, Shiming Li<sup>2</sup>, Xiucheng Wang<sup>5</sup>, Le Yang<sup>6</sup>, Bowen Tian<sup>1</sup>, Jiemin Wu<sup>1</sup>, Songning Lai<sup>1</sup>, Yutao Yue<sup>1</sup></p>
+    <details class="project-affiliations">
+      <summary>Author affiliations</summary>
+      <ol>
+        <li>The Hong Kong University of Science and Technology (hkust-gz.edu.cn)</li>
+        <li>LimX Dynamics (limxdynamics.com)</li>
+        <li>Griffith University (griffith.edu.au)</li>
+        <li>University of Macau (um.edu.mo)</li>
+        <li>Xi'an University of Electronic Science and Technology (xidian.edu.cn)</li>
+        <li>Sun Yat-sen University (mail.sysu.edu.cn)</li>
+      </ol>
+    </details>
     <ul>
       <li>STRIDE trains a motion generator to preserve the movement when a command is rephrased, but change it when an instruction changes meaning, such as switching from left to right.</li>
       <li>On ECHO Lite, motion similarity across paraphrases rose from <strong>0.571 to 0.835</strong>. On a physical Unitree G1, the robot crossed its forearms and walked forward under reworded commands.</li>
@@ -70,6 +95,16 @@ You can find my publications on <a href='https://scholar.google.com/citations?us
   </div></div>
   <div class="paper-box-text">
     <h3>Guessing or Looking? Visual Evidence Tracing and Anchoring for Whole-Slide Pathology VLMs</h3>
+    <p class="project-authors"><strong>Zhuo Chen</strong><sup>1</sup>, Wenshuo Chen<sup>1</sup>, Shaofeng Liang<sup>1</sup>, Lei Wang<sup>2</sup>, Le Yang<sup>3</sup>, Zirui Wang<sup>1</sup>, Kaishen Yuan<sup>1</sup>, Songning Lai<sup>1</sup>, Jin-Hao Sheng<sup>4</sup>, Lujundong Li<sup>1</sup>, Yutao Yue<sup>1</sup></p>
+    <details class="project-affiliations">
+      <summary>Author affiliations</summary>
+      <ol>
+        <li>The Hong Kong University of Science and Technology (hkust-gz.edu.cn)</li>
+        <li>Griffith University (griffith.edu.au)</li>
+        <li>Sun Yat-sen University (mail.sysu.edu.cn)</li>
+        <li>Nanjing University (nju.edu.cn)</li>
+      </ol>
+    </details>
     <ul>
       <li>PathSleuth traces tissue patches through eight compressed visual slots. Swapping one slot with its counterpart from another patient tests whether the model uses that evidence in its answer.</li>
       <li>Restoring the three highest-ranked slots after swapping all eight recovered <strong>81% of the mean loss</strong> in log probability for the correct answer.</li>
